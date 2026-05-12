@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Aquarium_Selection : MonoBehaviour
 {
@@ -14,9 +15,12 @@ public class Aquarium_Selection : MonoBehaviour
     public CatShipMovement catScript;
     private FishData info_Peixe;
 
+    public RawImage Gaso;
+    public RawImage Sani;
+    public RawImage Fome;
+
     public void Start()
     {
-
         Peixe_Atual = 0;
 
         peixeinstanciado = Instantiate(Peixes[Peixe_Atual], Transform_Peixe);
@@ -29,6 +33,33 @@ public class Aquarium_Selection : MonoBehaviour
         {
             Nome_Text.text = info_Peixe.Nome_do_Peixe;
             Descri_Text.text = info_Peixe.Descrição_do_Peixe;
+
+            if (info_Peixe.Recurso_Gaso)
+            {
+                Gaso.color = Color.white;
+            }
+            else if (!info_Peixe.Recurso_Gaso)
+            {
+                Gaso.color = Color.black;
+            }
+
+            if (info_Peixe.Recurso_Sani)
+            {
+                Sani.color = Color.white;
+            }
+            else if (!info_Peixe.Recurso_Sani)
+            {
+                Sani.color = Color.black;
+            }
+
+            if (info_Peixe.Recurso_Fome)
+            {
+                Fome.color = Color.white;
+            }
+            else if (!info_Peixe.Recurso_Fome)
+            {
+                Fome.color = Color.black;
+            }
         }
     }
     public void Subir()

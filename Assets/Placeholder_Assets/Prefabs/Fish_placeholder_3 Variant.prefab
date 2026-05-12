@@ -57,6 +57,14 @@ PrefabInstance:
       value: Fish_placeholder_3 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8695545789456118389, guid: a734974a8f01d6c45b106b3b51f899ea, type: 3}
+      propertyPath: Recurso_Fome
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695545789456118389, guid: a734974a8f01d6c45b106b3b51f899ea, type: 3}
+      propertyPath: Recurso_Sani
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695545789456118389, guid: a734974a8f01d6c45b106b3b51f899ea, type: 3}
       propertyPath: Nome_do_Peixe
       value: "Azul\xE3o"
       objectReference: {fileID: 0}
