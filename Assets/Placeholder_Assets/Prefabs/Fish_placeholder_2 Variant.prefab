@@ -9,14 +9,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1776809198909924693, guid: 66cb35bb6a3212b4dba5efb84f026300, type: 3}
-      propertyPath: Recurso_Fome
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776809198909924693, guid: 66cb35bb6a3212b4dba5efb84f026300, type: 3}
-      propertyPath: Recurso_Gaso
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776809198909924693, guid: 66cb35bb6a3212b4dba5efb84f026300, type: 3}
       propertyPath: Nome_do_Peixe
       value: "Verd\xE3o"
       objectReference: {fileID: 0}
@@ -71,10 +63,6 @@ PrefabInstance:
     - target: {fileID: 4307760112488631042, guid: 66cb35bb6a3212b4dba5efb84f026300, type: 3}
       propertyPath: m_Name
       value: Fish_placeholder_2 Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 4307760112488631042, guid: 66cb35bb6a3212b4dba5efb84f026300, type: 3}
-      propertyPath: m_TagString
-      value: Fish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
