@@ -749,7 +749,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1744863876}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Aquarium_Selection, Assembly-CSharp
         m_MethodName: Subir
         m_Mode: 1
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 722889028}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Computer_Selection, Assembly-CSharp
         m_MethodName: Voltar
         m_Mode: 1
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 722889026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfb298e38ba52594daf27958456c58fa, type: 3}
+  m_Script: {fileID: 11500000, guid: f4112573e637d1348a06e83799a5a88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   screenScript: {fileID: 253915169}
@@ -2703,7 +2703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1744863876}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Aquarium_Selection, Assembly-CSharp
         m_MethodName: Voltar
         m_Mode: 1
@@ -2972,7 +2972,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1744863876}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Aquarium_Selection, Assembly-CSharp
         m_MethodName: Descer
         m_Mode: 1
@@ -3815,7 +3815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1744863874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b75fd63b5493e114f8b1d1e084b50bb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a1a4253591f8b34780969d8d987fea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Peixes:
