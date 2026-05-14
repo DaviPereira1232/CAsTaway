@@ -78,14 +78,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f69385bfc96bae47bb84215bd2d5988, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1776809198909924693}
+      addedObject: {fileID: 123646261779583077}
   m_SourcePrefab: {fileID: 100100000, guid: 5f69385bfc96bae47bb84215bd2d5988, type: 3}
 --- !u!1 &4307760112488631042 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f69385bfc96bae47bb84215bd2d5988, type: 3}
   m_PrefabInstance: {fileID: 3965794604383893075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1776809198909924693
+--- !u!114 &123646261779583077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,8 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4307760112488631042}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9b2555ad40b3f548b4e65a61c34d8de, type: 3}
+  m_Script: {fileID: 11500000, guid: 5be50c98cde9c1d4d88701233b36994b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nome_do_Peixe: Amarelo
-  "Descri\xE7\xE3o_do_Peixe": Sou um peixe amarelo saboroso.
+  Nome_do_Peixe: LulaMaluca
+  "Descri\xE7\xE3o_do_Peixe": Vai ser a Lula ig
+  Recurso_Gaso: 0
+  Recurso_Sani: 1
+  Recurso_Fome: 0
