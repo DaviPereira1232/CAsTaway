@@ -29,6 +29,8 @@ public class Aquarium_Selection : MonoBehaviour
     {
         info_Peixe = peixeinstanciado.GetComponent<FishData>();
 
+        peixeinstanciado.transform.localScale = new Vector3(0.42f, 0.42f, 0.42f);
+
         if (info_Peixe != null)
         {
             Nome_Text.text = info_Peixe.Nome_do_Peixe;

@@ -6,6 +6,7 @@ public class CatShipMovement : MonoBehaviour
     public float Speed = 5;
     private float HoriInput;
     public bool CanPlayerWalk;
+    public GameObject CatMesh;
 
     private Rigidbody RB;
     public GameObject camManagement;
@@ -36,11 +37,13 @@ public class CatShipMovement : MonoBehaviour
         {
             Vector3 movement = new Vector3(HoriInput * Speed, RB.linearVelocity.y, 0);
             RB.linearVelocity = movement;
+            CatMesh.SetActive(true);
         }
         else
         {
             RB.linearVelocity = Vector3.zero;
             RB.angularVelocity = Vector3.zero;
+            CatMesh.SetActive(false);
         }
 
     }
