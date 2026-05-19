@@ -43,20 +43,56 @@ public class PlayerMovement : MonoBehaviour
 
     private void Pegar(GameObject peixepego, Collider colisao, MeshRenderer mesh)
     {
-        //Efeitos do Peixe diminuindo
-        peixepego.transform.localScale = Vector3.Lerp(peixepego.transform.localScale, peixepego.transform.localScale / 2, Time.deltaTime * 2f);
-        peixepego.transform.position = Vector3.Lerp(peixepego.transform.position, transform.position, Time.deltaTime * 4f);
-        //Deletando o peixe
-        Destroy(colisao);
-        Fish_caught[Número_de_peixes] = peixepego;
-        Destroy(mesh, 1f);
+        foreach (GameObject peixe in Fish_caught)
+        {
+            if (peixe == peixepego)
+            {
+                return;
+            }
+        }
+
+        // primeiro slot vazio
+        for (int i = 0; i < Fish_caught.Length; i++)
+        {
+            if (Fish_caught[i] == null)
+            {
+                Fish_caught[i] = peixepego;
+                Número_de_peixes++;
+
+                Debug.Log("Peixe guardado no slot " + i);
+
+                // Efeitos visuais
+                peixepego.transform.localScale = Vector3.Lerp(
+                    peixepego.transform.localScale,
+                    peixepego.transform.localScale / 2,
+                    Time.deltaTime * 2f
+                );
+
+                peixepego.transform.position = Vector3.Lerp(
+                    peixepego.transform.position,
+                    transform.position,
+                    Time.deltaTime * 4f
+                );
+
+                // Desativa colisão para impedir capturas repetidas
+                colisao.enabled = false;
+
+                // Esconde peixe depois
+                Destroy(mesh, 1f);
+
+                return;
+            }
+        }
+
+        Debug.Log("Inventário cheio!");
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Fish" && Input.GetButton("Fire1"))
+        if (other.gameObject.tag == "Fish" && Input.GetButtonDown("Fire1"))
         {
-            Pegar(other.gameObject,other.GetComponent<Collider>(), other.GetComponent<MeshRenderer>());
+            Pegar(other.gameObject, other.GetComponent<Collider>(), other.GetComponent<MeshRenderer>());
         }
     }
+
 }
