@@ -109,7 +109,7 @@ public class PlayerMovement2 : MonoBehaviour
         Fish_caught.Add(peixepego);
 
         Destroy(mesh);
-        Destroy(peixepego);
+        //Destroy(peixepego);
     }
 
     private void OnTriggerStay(Collider other)
