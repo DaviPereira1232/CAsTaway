@@ -31,6 +31,8 @@ public class Aquarium_Selection : MonoBehaviour
 
         peixeinstanciado.transform.localScale = new Vector3(0.42f, 0.42f, 0.42f);
 
+        Peixes = Player_Save.PeixesPegos;
+
         if (info_Peixe != null)
         {
             Nome_Text.text = info_Peixe.Nome_do_Peixe;

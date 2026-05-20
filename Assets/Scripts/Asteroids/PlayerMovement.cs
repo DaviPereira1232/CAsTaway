@@ -34,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
         barrinha.fillAmount = Fuel / 100;
 
+        Player_Save.PeixesPegos = Fish_caught;
+
     }
 
     private void FixedUpdate()
