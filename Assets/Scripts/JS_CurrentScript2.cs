@@ -7,7 +7,7 @@ public class CurrentTunnel2 : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        PlayerMovement2 ship = other.GetComponent<PlayerMovement2>();
+        PlayerMovement3 ship = other.GetComponent<PlayerMovement3>();
 
         if (ship != null)
         {
