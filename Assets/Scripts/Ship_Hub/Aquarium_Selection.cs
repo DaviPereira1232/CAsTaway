@@ -35,27 +35,27 @@ public class Aquarium_Selection : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject == Transform_Peixe[0].gameObject && Input.GetButtonDown("Fire1"))
+            if (hit.collider.gameObject == Transform_Peixe[0].gameObject && Input.GetButtonDown("Fire1") && Peixes[0])
             {
                 Transform_Peixe[0].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[0].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[1].gameObject && Input.GetButtonDown("Fire1"))
+            else if (hit.collider.gameObject == Transform_Peixe[1].gameObject && Input.GetButtonDown("Fire1") && Peixes[1])
             {
                 Transform_Peixe[1].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[1].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[2].gameObject && Input.GetButtonDown("Fire1"))
+            else if (hit.collider.gameObject == Transform_Peixe[2].gameObject && Input.GetButtonDown("Fire1") && Peixes[2])
             {
                 Transform_Peixe[2].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[2].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[3].gameObject && Input.GetButtonDown("Fire1"))
+            else if (hit.collider.gameObject == Transform_Peixe[3].gameObject && Input.GetButtonDown("Fire1") && Peixes[3])
             {
                 Transform_Peixe[3].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[3].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[4].gameObject && Input.GetButtonDown("Fire1"))
+            else if (hit.collider.gameObject == Transform_Peixe[4].gameObject && Input.GetButtonDown("Fire1") && Peixes[4])
             {
                 Transform_Peixe[4].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[4].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");

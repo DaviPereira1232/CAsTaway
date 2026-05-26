@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
@@ -11,11 +12,12 @@ public class PlayerMovement3 : MonoBehaviour
     public float Speed = 12;
     public float Fuel = 100;
     public UnityEngine.UI.Image barrinha;
-    public List<GameObject> Fish_caught = new List<GameObject>();
+    public List<FishInfo> FishCaught = new List<FishInfo>();
 
     private Rigidbody rb;
     private float Hori;
     private float Vert;
+    private float StartFuel;
 
     //Jorge Mods:
     private Vector2 currentForce;
@@ -28,6 +30,7 @@ public class PlayerMovement3 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0f;
+        StartFuel = Fuel;
     }
 
     void Update()
@@ -35,14 +38,19 @@ public class PlayerMovement3 : MonoBehaviour
         Hori = Input.GetAxis("Horizontal");
         Vert = Input.GetAxis("Vertical");
 
-        Fuel = Fuel - 1 * Time.deltaTime;
+        float drain = 1f;
 
         if (Hori != 0 || Vert != 0)
-        {
-            Fuel = Fuel - 1 * Time.deltaTime;
-        }
+            drain += 1f;
 
-        barrinha.fillAmount = Fuel / 100;
+        Fuel -= drain * Time.deltaTime;
+
+        barrinha.fillAmount = Fuel / StartFuel;
+
+        if (Fuel <= 0)
+        {
+            SceneManager.LoadScene("Ship_Hub");
+        }
 
         //Fish Gathering 
         if (nearbyFish != null && Input.GetButtonDown("Fire1"))
@@ -115,27 +123,33 @@ public class PlayerMovement3 : MonoBehaviour
 
             float n = Mathf.SmoothStep(0f, 1f, t / duration);
 
-            // smooth shrink
-            peixepego.transform.localScale = Vector3.Lerp(
-                startScale,
-                startScale * 0.5f,
-                n
-            );
+            peixepego.transform.localScale =
+                Vector3.Lerp(
+                    startScale,
+                    startScale * 0.5f,
+                    n
+                );
 
-            // smooth pull to player
-            peixepego.transform.position = Vector3.Lerp(
-                startPos,
-                transform.position,
-                n
-            );
+            peixepego.transform.position =
+                Vector3.Lerp(
+                    startPos,
+                    transform.position,
+                    n
+                );
 
             yield return null;
         }
 
-        Fish_caught.Add(peixepego);
+        FishData peixeData = peixepego.GetComponent<FishData>();
 
-        Destroy(mesh);
-        //Destroy(peixepego);
+        if (peixeData == null)
+            yield break;
+
+        FishInfo copy = new FishInfo(peixeData);
+
+        Player_Save.Instance.AddFish(copy);
+
+        Destroy(peixepego); 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -183,7 +197,6 @@ public class PlayerMovement3 : MonoBehaviour
         canTakeDamage = false;
 
         Debug.Log("Ouriço atropelado!");
-        Fuel -= 10;
 
         yield return new WaitForSeconds(0.3f);
 

@@ -121,8 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be50c98cde9c1d4d88701233b36994b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nome_do_Peixe: 
-  "Descri\xE7\xE3o_do_Peixe": 
-  Recurso_Gaso: 0
-  Recurso_Sani: 0
+  Nome_do_Peixe: Krill
+  "Descri\xE7\xE3o_do_Peixe": Sou o Krill
+  Recurso_Gaso: 1
+  Recurso_Sani: 1
   Recurso_Fome: 0
+  PrefabVisual: {fileID: 3766601744804473683}

@@ -1,3 +1,4 @@
+ï»¿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,130 +12,126 @@ public class Computer_Selection : MonoBehaviour
     public GameObject EscoAsteroide_Menu;
     public GameObject EscoPeixe_Menu;
 
-    public GameObject[] Peixes;
+    private List<FishInfo> Peixes = new List<FishInfo>();
+
     public Transform Transform_Peixe;
     public int Peixe_Atual;
+
     public TextMeshProUGUI Nome_Text;
     public TextMeshProUGUI Descri_Text;
-    private FishData info_Peixe;
-    private GameObject peixeinstanciado;
 
     public RawImage Gaso;
     public RawImage Sani;
     public RawImage Fome;
+
+    private GameObject peixeinstanciado;
 
     void Start()
     {
         EscoAsteroide_Menu.SetActive(false);
         EscoPeixe_Menu.SetActive(false);
 
+        if (Player_Save.Instance != null)
+        {
+            Peixes = Player_Save.Instance.FishCaught;
+        }
+
+        if (Peixes == null)
+            Peixes = new List<FishInfo>();
+
         Peixe_Atual = 0;
 
-        peixeinstanciado = Instantiate(Peixes[Peixe_Atual], Transform_Peixe);
+        if (Peixes.Count > 0)
+        {
+            SpawnFish();
+            AtualizarUI();
+        }
+        else
+        {
+            ClearUI();
+        }
     }
 
     void Update()
     {
-        info_Peixe = peixeinstanciado.GetComponent<FishData>();
 
-        peixeinstanciado.transform.localScale = new Vector3(0.42f, 0.42f, 0.42f);
+    }
 
-        if (info_Peixe != null)
-        {
-            Nome_Text.text = info_Peixe.Nome_do_Peixe;
-            Descri_Text.text = info_Peixe.Descrição_do_Peixe;
 
-            if (info_Peixe.Recurso_Gaso)
-            {
-                Gaso.color = Color.white;
-            }
-            else if (!info_Peixe.Recurso_Gaso)
-            {
-                Gaso.color = Color.black;
-            }
+    void AtualizarUI()
+    {
+        if (Peixes.Count == 0) return;
 
-            if (info_Peixe.Recurso_Sani)
-            {
-                Sani.color = Color.white;
-            }
-            else if (!info_Peixe.Recurso_Sani)
-            {
-                Sani.color = Color.black;
-            }
+        FishInfo fish = Peixes[Peixe_Atual];
 
-            if (info_Peixe.Recurso_Fome)
-            {
-                Fome.color = Color.white;
-            }
-            else if (!info_Peixe.Recurso_Fome)
-            {
-                Fome.color = Color.black;
-            }
-        }
+        Nome_Text.text = fish.Nome_do_Peixe;
+        Descri_Text.text = fish.DescriÃ§Ã£o_do_Peixe;
+
+        Gaso.color = fish.Recurso_Gaso ? Color.white : Color.black;
+        Sani.color = fish.Recurso_Sani ? Color.white : Color.black;
+        Fome.color = fish.Recurso_Fome ? Color.white : Color.black;
+    }
+
+    void ClearUI()
+    {
+        Nome_Text.text = "Sem peixes";
+        Descri_Text.text = "";
+    }
+
+    void SpawnFish()
+    {
+        if (Peixes.Count == 0) return;
+
+        if (peixeinstanciado != null)
+            Destroy(peixeinstanciado);
+
+        peixeinstanciado = Instantiate(
+            Peixes[Peixe_Atual].PrefabVisual,
+            Transform_Peixe
+        );
+
+        peixeinstanciado.transform.localScale = Vector3.one * 0.42f;
     }
 
     public void MudarMenu(int num)
     {
-        if (num == 0)
+        Main_Menu.SetActive(num == 0);
+        EscoAsteroide_Menu.SetActive(num == 1);
+        EscoPeixe_Menu.SetActive(num == 2);
+
+        if (num == 3)
         {
-            Main_Menu.SetActive(true);
-            EscoAsteroide_Menu.SetActive(false);
-            EscoPeixe_Menu.SetActive(false);
-            Debug.Log("Menu");
-        }
-        else if (num == 1)
-        {
-            Main_Menu.SetActive(false);
-            EscoAsteroide_Menu.SetActive(true);
-            EscoPeixe_Menu.SetActive(false);
-            Debug.Log("Asteroide");
-        }
-        else if (num == 2)
-        {
-            Main_Menu.SetActive(false);
-            EscoAsteroide_Menu.SetActive(false);
-            EscoPeixe_Menu.SetActive(true);
-            Debug.Log("Peixe");
-        }
-        else if (num == 3)
-        {
-            screenScript.currentPos = 0;
-            catScript.CanPlayerWalk = true;
+            if (screenScript != null)
+                screenScript.currentPos = 0;
+
+            if (catScript != null)
+                catScript.CanPlayerWalk = true;
+
             Debug.Log("Sair");
         }
     }
 
     public void Subir()
     {
+        if (Peixes.Count == 0) return;
+
         Peixe_Atual++;
-
-        if (Peixe_Atual >= Peixes.Length)
-        {
+        if (Peixe_Atual >= Peixes.Count)
             Peixe_Atual = 0;
-        }
 
-        Destroy(peixeinstanciado.gameObject);
-
-        peixeinstanciado = Instantiate(
-            Peixes[Peixe_Atual],
-            Transform_Peixe
-        );
+        SpawnFish();
+        AtualizarUI();
     }
 
     public void Descer()
     {
+        if (Peixes.Count == 0) return;
+
         Peixe_Atual--;
-
         if (Peixe_Atual < 0)
-        {
-            Peixe_Atual = Peixes.Length - 1;
-        }
+            Peixe_Atual = Peixes.Count - 1;
 
-        Destroy(peixeinstanciado.gameObject);
-
-        peixeinstanciado = Instantiate(
-            Peixes[Peixe_Atual],
-            Transform_Peixe
-        );
+        SpawnFish();
+        AtualizarUI();
     }
 }
