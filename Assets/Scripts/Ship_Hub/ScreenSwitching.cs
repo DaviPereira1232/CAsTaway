@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScreenSwitching : MonoBehaviour
 {
@@ -40,6 +41,7 @@ public class ScreenSwitching : MonoBehaviour
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position, camPoses[3].transform.position, Time.deltaTime * 5);
             cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, camPoses[3].transform.rotation, Time.deltaTime * 5);
+            SceneManager.LoadScene("Asteroid_LEVEL1");
             camFOV = 80;
         }
         else if (currentPos == 0)
