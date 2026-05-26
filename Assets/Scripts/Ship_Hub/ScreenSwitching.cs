@@ -52,12 +52,12 @@ public class ScreenSwitching : MonoBehaviour
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, camFOV, Time.deltaTime * 2);
 
         //Alternar de UIs
-        if (cam.transform.position == camPoses[1].transform.position)
+        if (Vector3.Distance(cam.transform.position, camPoses[1].position) < 0.2f)
         {
             Aqua_UI.SetActive(true);
             PC_UI.SetActive(false);
         }
-        else if (cam.transform.position == camPoses[2].transform.position)
+        else if (Vector3.Distance(cam.transform.position, camPoses[2].position) < 0.2f)
         {
             PC_UI.SetActive(true);
             Aqua_UI.SetActive(false);

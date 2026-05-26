@@ -102,3 +102,4 @@ MonoBehaviour:
   Recurso_Gaso: 1
   Recurso_Sani: 1
   Recurso_Fome: 1
+  PrefabVisual: {fileID: 0}

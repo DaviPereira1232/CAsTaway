@@ -13,6 +13,7 @@ public class Computer_Selection : MonoBehaviour
     public GameObject EscoPeixe_Menu;
 
     private List<FishInfo> Peixes = new List<FishInfo>();
+    public Aquarium_Selection Aqua;
 
     public Transform Transform_Peixe;
     public int Peixe_Atual;
@@ -90,7 +91,7 @@ public class Computer_Selection : MonoBehaviour
             Transform_Peixe
         );
 
-        peixeinstanciado.transform.localScale = Vector3.one * 0.42f;
+        peixeinstanciado.transform.localScale = Vector3.one * 0.80f;
     }
 
     public void MudarMenu(int num)
@@ -133,5 +134,14 @@ public class Computer_Selection : MonoBehaviour
 
         SpawnFish();
         AtualizarUI();
+    }
+
+    public void AdicionarAquario()
+    {
+        if (peixeinstanciado != null)
+        {
+            Aqua.PeixesDoAquario.SetValue(peixeinstanciado.gameObject,Peixe_Atual);
+        }
+
     }
 }

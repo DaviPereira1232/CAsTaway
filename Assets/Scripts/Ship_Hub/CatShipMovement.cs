@@ -9,6 +9,7 @@ public class CatShipMovement : MonoBehaviour
     public GameObject CatMesh;
 
     private Rigidbody RB;
+    private Animator animator;
     public GameObject camManagement;
     private ScreenSwitching camScript;
     public TextMeshProUGUI DisplayText;
@@ -18,6 +19,7 @@ public class CatShipMovement : MonoBehaviour
     {
         RB = GetComponent<Rigidbody>(); 
         camScript = camManagement.GetComponent<ScreenSwitching>();
+        animator = GetComponent<Animator>();
 
         DisplayText.gameObject.SetActive(false);
     }
@@ -28,6 +30,27 @@ public class CatShipMovement : MonoBehaviour
         if (currentTrigger != "" && Input.GetButtonDown("Fire1"))
         {
             Interact();
+        }
+
+        //Animações
+        if (HoriInput != 0)
+        {
+            animator.Play("Walk");
+
+            if (HoriInput > 0)
+            {
+                transform.rotation = Quaternion.Euler(0f, -90f, 0f);
+            }
+            else if (HoriInput < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0f, 90f, 0f);
+                }
+        }
+        else
+        {
+            animator.Play("Idle");
+            transform.rotation = Quaternion.Euler(0f, 0, 0f);
+
         }
 
     }

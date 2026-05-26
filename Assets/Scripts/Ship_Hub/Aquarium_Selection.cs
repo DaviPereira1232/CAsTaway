@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Aquarium_Selection : MonoBehaviour
 {
-    public GameObject[] Peixes;
+    public GameObject[] PeixesDoAquario;
     public Transform[] Transform_Peixe;
     private GameObject[] peixes;
 
@@ -13,14 +13,14 @@ public class Aquarium_Selection : MonoBehaviour
     public CatShipMovement catScript;
     public void Start()
     {
-        peixes = new GameObject[Peixes.Length];
+        peixes = new GameObject[PeixesDoAquario.Length];
 
         {
-            for (int i = 0; i < Peixes.Length; i++)
-                if (Peixes[i] != null)
+            for (int i = 0; i < PeixesDoAquario.Length; i++)
+                if (PeixesDoAquario[i] != null)
                 {
                     peixes[i] = Instantiate(
-                        Peixes[i],
+                        PeixesDoAquario[i],
                         Transform_Peixe[i]
                     );
                 }
@@ -35,27 +35,27 @@ public class Aquarium_Selection : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject == Transform_Peixe[0].gameObject && Input.GetButtonDown("Fire1") && Peixes[0])
+            if (hit.collider.gameObject == Transform_Peixe[0].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[0])
             {
                 Transform_Peixe[0].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[0].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[1].gameObject && Input.GetButtonDown("Fire1") && Peixes[1])
+            else if (hit.collider.gameObject == Transform_Peixe[1].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[1])
             {
                 Transform_Peixe[1].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[1].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[2].gameObject && Input.GetButtonDown("Fire1") && Peixes[2])
+            else if (hit.collider.gameObject == Transform_Peixe[2].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[2])
             {
                 Transform_Peixe[2].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[2].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[3].gameObject && Input.GetButtonDown("Fire1") && Peixes[3])
+            else if (hit.collider.gameObject == Transform_Peixe[3].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[3])
             {
                 Transform_Peixe[3].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[3].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
             }
-            else if (hit.collider.gameObject == Transform_Peixe[4].gameObject && Input.GetButtonDown("Fire1") && Peixes[4])
+            else if (hit.collider.gameObject == Transform_Peixe[4].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[4])
             {
                 Transform_Peixe[4].GetChild(0).gameObject.SetActive(true);
                 Transform_Peixe[4].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
