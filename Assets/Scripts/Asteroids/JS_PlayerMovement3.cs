@@ -22,7 +22,7 @@ public class PlayerMovement3 : MonoBehaviour
     //Jorge Mods:
     private Vector2 currentForce;
     private bool canTakeDamage = true;
-    public MeshRenderer shipMesh;
+    public GameObject shipMesh;
     private Vector3 smoothedCurrentVelocity;
     private GameObject nearbyFish;
 
@@ -208,14 +208,14 @@ public class PlayerMovement3 : MonoBehaviour
     {
         while (!canTakeDamage)
         {
-            shipMesh.enabled = false;
+            shipMesh.SetActive(false);
             yield return new WaitForSeconds(0.1f);
 
-            shipMesh.enabled = true;
+            shipMesh.SetActive(true);
             yield return new WaitForSeconds(0.1f);
         }
 
-        shipMesh.enabled = true;
+        shipMesh.SetActive(true);
     }
 
 }
