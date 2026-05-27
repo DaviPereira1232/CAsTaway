@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d68b9165bf7c87047b2a0d4ab50a8d60
+guid: 6796bde2cabb28c44b50fd2f02e6b2df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: dancinha
-      takeName: "Quatro bones/Bra\xE7o|Quatro bones/Bra\xE7oAction"
-      internalID: -4796454795862596711
+      name: SUcesso
+      takeName: "Quatro bones/Bra\xE7o|Action"
+      internalID: 4377738353128419847
       firstFrame: 0
-      lastFrame: 150
+      lastFrame: 59
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
