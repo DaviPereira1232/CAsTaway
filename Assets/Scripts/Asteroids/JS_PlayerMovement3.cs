@@ -60,6 +60,8 @@ public class PlayerMovement3 : MonoBehaviour
                 nearbyFish.GetComponent<Collider>(),
                 nearbyFish.GetComponent<MeshRenderer>()
             ));
+
+            Destroy( nearbyFish.GetComponent<SphereCollider>() );
         }
     }
 

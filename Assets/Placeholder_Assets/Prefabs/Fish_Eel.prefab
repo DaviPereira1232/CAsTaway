@@ -95,7 +95,7 @@ MonoBehaviour:
   Recurso_Gaso: 1
   Recurso_Sani: 1
   Recurso_Fome: 1
-  PrefabVisual: {fileID: 919132149155446097, guid: 97435a593b7f28a4abbd491bc62ceafb, type: 3}
+  PrefabVisual: {fileID: 919132149155446097, guid: f023399b57ee22246b5a1c95192e5538, type: 3}
 --- !u!1001 &1499141369976781688
 PrefabInstance:
   m_ObjectHideFlags: 0
