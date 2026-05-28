@@ -19,7 +19,7 @@ public class CatShipMovement : MonoBehaviour
     {
         RB = GetComponent<Rigidbody>(); 
         camScript = camManagement.GetComponent<ScreenSwitching>();
-        animator = GetComponent<Animator>();
+        animator = CatMesh.GetComponent<Animator>();
 
         DisplayText.gameObject.SetActive(false);
     }
@@ -35,7 +35,7 @@ public class CatShipMovement : MonoBehaviour
         //Animações
         if (HoriInput != 0)
         {
-            animator.Play("Walk");
+            animator.Play("Andar");
 
             if (HoriInput > 0)
             {
@@ -48,7 +48,7 @@ public class CatShipMovement : MonoBehaviour
         }
         else
         {
-            animator.Play("Idle");
+            animator.Play("Quatro bones/Braço|Quatro bones/BraçoAction");
             transform.rotation = Quaternion.Euler(0f, 0, 0f);
 
         }
