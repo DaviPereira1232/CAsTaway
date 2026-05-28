@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bcc7216c16acfa44d8097e27b9304d22
+guid: e1acf2aef86ba3648ac75242df4a2135
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Andar
+      name: dorme
       takeName: "Quatro bones/Bra\xE7o|Quatro bones/Bra\xE7oAction"
       internalID: -4796454795862596711
       firstFrame: 0
-      lastFrame: 39
+      lastFrame: 79
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
