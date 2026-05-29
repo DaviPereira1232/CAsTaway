@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-7357554745871571896
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 167459c7b282e1748ba7a08a9a7f481c
+  m_EffectName: Attenuation
+  m_MixLevel: c8bfaaa499863d84787b4a21a71cdfdc
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-3261173466842953554
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -9,12 +23,32 @@ AudioMixerGroupController:
   m_Name: SFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: de0be2f7e91e4474f913d3a39e312dd8
-  m_Children: []
+  m_Children:
+  - {fileID: -2652281806810393150}
   m_Volume: c5b0e12fbd3053e49af5885e4dbba960
   m_Pitch: f623df183251e7b4dba186726f69d36b
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 8657224217639090354}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &-2652281806810393150
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sea Urchin
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: c6c1f44c62c5f11449bbd66c16d0af8d
+  m_Children: []
+  m_Volume: 367a806e111848f4181f8f7d461e55c5
+  m_Pitch: 6a99663955680d144b3659e5a8317b1c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -7357554745871571896}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -42,6 +76,7 @@ AudioMixerController:
     - c710965b163304b49aff2e1beb296565
     - d3b01647a30a1f54f82317187a018eff
     - de0be2f7e91e4474f913d3a39e312dd8
+    - c6c1f44c62c5f11449bbd66c16d0af8d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}

@@ -7,6 +7,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSource;
 
     [Header("-----------Audio Clips-----------")]
+
+    //[SerializeField] private AudioClip SFX;
     [SerializeField] private AudioClip background;
     [SerializeField] private AudioClip damage;
     [SerializeField] private AudioClip bubbles;
