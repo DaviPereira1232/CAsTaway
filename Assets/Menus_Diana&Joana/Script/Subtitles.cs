@@ -6,25 +6,23 @@ public class Subtitles : MonoBehaviour
 {
     public Button leftArrow;
     public Button rightArrow;
-    private TMP_Text subtitleText;  // Still need TMP_Text
+    public TMP_Text subtitleText;
+    
+    private string[] languages = {"English", "Português", "Español", "Français"};
+    private int currentIndex = 0;
     
     void Start()
     {
-        // This works if the script is on the SAME GameObject as the TextMeshPro component
-        subtitleText = GetComponent<TMP_Text>();
+        subtitleText.text = languages[currentIndex];
         
-        if (subtitleText == null)
-        {
-            Debug.LogError("No TMP_Text component found on this GameObject!");
-            return;
-        }
-        
-        leftArrow.onClick.AddListener(() => SwitchText("English"));
-        rightArrow.onClick.AddListener(() => SwitchText("Português"));
+        leftArrow.onClick.AddListener(() => ChangeLanguage(-1));
+        rightArrow.onClick.AddListener(() => ChangeLanguage(1));
     }
     
-    void SwitchText(string text)
+    void ChangeLanguage(int direction)
     {
-        subtitleText.text = text;
+        // direction: -1 for previous, 1 for next
+        currentIndex = (currentIndex + direction + languages.Length) % languages.Length;
+        subtitleText.text = languages[currentIndex];
     }
 }
