@@ -49,17 +49,20 @@ public class PlayerMovement3 : MonoBehaviour
 
         if (Fuel <= 0)
         {
-            SceneManager.LoadScene("Ship_Hub");
+            SceneManager.LoadScene("Teste");
         }
 
         //Fish Gathering 
         if (nearbyFish != null && Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(Pegar(
-                nearbyFish,
-                nearbyFish.GetComponent<Collider>(),
-                nearbyFish.GetComponent<MeshRenderer>()
-            ));
+            if (nearbyFish.GetComponent<Collider>() != null)
+            {
+                StartCoroutine(Pegar(
+                    nearbyFish,
+                    nearbyFish.GetComponent<Collider>(),
+                    nearbyFish.GetComponent<MeshRenderer>()
+                ));
+            }
 
             Destroy( nearbyFish.GetComponent<SphereCollider>() );
         }
