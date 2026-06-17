@@ -549,8 +549,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nome_do_Peixe: Dumbo Octo
-  "Descri\xE7\xE3o_do_Peixe": An animal living in groups, there are lots of them.
+  "Descri\xE7\xE3o_do_Peixe": "Um animal que vive em grandes grupos, existem em abund\xE2ncia."
   Recurso_Gaso: 1
   Recurso_Sani: 1
   Recurso_Fome: 1
-  PrefabVisual: {fileID: 919132149155446097, guid: 97435a593b7f28a4abbd491bc62ceafb, type: 3}
+  Gaso: 0
+  Sani: 1
+  Fome: 0.5
+  Dialogos:
+  - glugluglu
+  - glaglagla
+  - gligligli
+  PrefabVisual: {fileID: 6705312478600663337, guid: 90ec83f6c9c520a41a6bb0e92d958a7a, type: 3}

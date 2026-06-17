@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIPanelManager : MonoBehaviour
 {
@@ -15,5 +16,10 @@ public class UIPanelManager : MonoBehaviour
     public void TogglePanel(GameObject panel)
     {
         panel.SetActive(!panel.activeSelf);
+    }
+
+    public void Jogar()
+    {
+        SceneManager.LoadScene("Teste");
     }
 }

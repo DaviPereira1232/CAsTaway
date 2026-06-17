@@ -4,20 +4,19 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 
 public class PlayerMovement3 : MonoBehaviour
 {
     public float Speed = 12;
     public float Fuel = 100;
-    public UnityEngine.UI.Image barrinha;
     public List<FishInfo> FishCaught = new List<FishInfo>();
 
     private Rigidbody rb;
     private float Hori;
     private float Vert;
     private float StartFuel;
+    public Slider slider;
 
     //Jorge Mods:
     private Vector2 currentForce;
@@ -31,6 +30,17 @@ public class PlayerMovement3 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0f;
         StartFuel = Fuel;
+
+        // FIX: Automatically configure the slider to match your fuel limits
+        if (slider != null)
+        {
+            slider.maxValue = StartFuel;
+            slider.value = Fuel;
+        }
+        else
+        {
+            Debug.LogError($"Slider missing from PlayerMovement3 on {gameObject.name}! Please assign it in the Inspector.");
+        }
     }
 
     void Update()
@@ -45,7 +55,10 @@ public class PlayerMovement3 : MonoBehaviour
 
         Fuel -= drain * Time.deltaTime;
 
-        barrinha.fillAmount = Fuel / StartFuel;
+        if (slider != null)
+        {
+            slider.value = Mathf.Max(Fuel, 0f);
+        }
 
         if (Fuel <= 0)
         {

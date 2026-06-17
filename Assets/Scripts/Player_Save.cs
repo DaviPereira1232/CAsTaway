@@ -1,25 +1,26 @@
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class Player_Save : MonoBehaviour
-    {
-        public static Player_Save Instance;
+public class Player_Save : MonoBehaviour
+{
+    public static Player_Save Instance;
 
     public List<FishInfo> FishCaught = new List<FishInfo>();
 
+    public GameObject[] Peixes_Aquario = new GameObject[5];
 
     private void Awake()
+    {
+        if (Instance == null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void AddFish(FishInfo peixe)
     {

@@ -1,5 +1,6 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_Computer : MonoBehaviour
@@ -25,6 +26,7 @@ public class UI_Computer : MonoBehaviour
     public GameObject objectos_peixe;
     public GameObject Full;
     public Aquarium aqua;
+    public GestÃ£oDeRecursos gestÃ£o;
 
     void Start()
     {
@@ -57,7 +59,7 @@ public class UI_Computer : MonoBehaviour
         else
             Counter.text = (peixe_atual + 1) + "/" + Peixes.Count;
 
-        // Feedback de aquário cheio
+        // Feedback de aquÃ¡rio cheio
         if (aqua != null && Full != null)
         {
             Full.SetActive(aqua.cheio);
@@ -70,9 +72,9 @@ public class UI_Computer : MonoBehaviour
         Main_Alt_Text[1].enabled = (texto == 2);
     }
 
-    public void MudarMenu(int próximo_menu)
+    public void MudarMenu(int prÃ³ximo_menu)
     {
-        qual_menu = próximo_menu;
+        qual_menu = prÃ³ximo_menu;
     }
 
     public void EscolherPlaneta(int selecionado)
@@ -115,12 +117,12 @@ public class UI_Computer : MonoBehaviour
 
     private void SpawnPeixe()
     {
-        // Se não houver peixes no inventário, limpa a UI e sai da função
+        // Se nÃ£o houver peixes no inventÃ¡rio, limpa a UI e sai da funÃ§Ã£o
         if (Peixes.Count == 0)
         {
             if (peixeinstanciado != null) Destroy(peixeinstanciado);
-            Nome_Text.text = "No fish encountered";
-            Descri_Text.text = "Find fish deep in the asteroids to use as Food, Pets or Fuel";
+            Nome_Text.text = "Nenhum Peixe";
+            Descri_Text.text = "Pesque mais peixes para usar como comida, bixos de estimaÃ§Ã£o ou combustÃ­vel.";
             return;
         }
 
@@ -132,38 +134,78 @@ public class UI_Computer : MonoBehaviour
 
         FishInfo fish = Peixes[peixe_atual];
         Nome_Text.text = fish.Nome_do_Peixe;
-        Descri_Text.text = fish.Descrição_do_Peixe;
+        Descri_Text.text = fish.DescriÃ§Ã£o_do_Peixe;
     }
 
     public void UsarPeixe(int utilidade = 0)
     {
-        if (utilidade == 2 && peixeinstanciado != null && Peixes.Count > 0)
+        // ðŸ›‘ TRAVA INFALÃVEL: Se a lista estiver vazia, cancela IMEDIATAMENTE.
+        if (Peixes == null || Peixes.Count == 0 || peixe_atual >= Peixes.Count)
         {
-            // Substitui os 5 "if/else" repetitivos por um loop for limpo
-            for (int i = 0; i < aqua.Peixes_Aquario.Length; i++)
-            {
-                if (aqua.Peixes_Aquario[i] == null)
-                {
-                    // Transfere o Prefab para o aquário
-                    aqua.Peixes_Aquario[i] = Peixes[peixe_atual].PrefabVisual;
-
-                    // Remove do inventário
-                    Peixes.RemoveAt(peixe_atual);
-
-                    // CORREÇÃO: Ajusta o índice de seleção ANTES de tentar renderizar a UI de novo
-                    if (peixe_atual >= Peixes.Count)
-                    {
-                        peixe_atual = Peixes.Count - 1;
-                    }
-                    if (peixe_atual < 0) peixe_atual = 0;
-
-                    // Atualiza o mundo físico e a UI do computador
-                    aqua.SpawnPeixeAqua();
-                    SpawnPeixe();
-
-                    break; // Sai do loop já que encontrou uma vaga vazia
-                }
-            }
+            return;
         }
+
+        switch (utilidade)
+        {
+            case 1: // FOME / COMIDA
+                AlterarFome();
+                // Remove o peixe do inventÃ¡rio APENAS DEPOIS de aplicar o efeito
+                Peixes.RemoveAt(peixe_atual);
+                FinalizarUsoDePeixe(atualizarAquario: false);
+                break;
+
+            case 2: // AQUÃRIO
+                if (aqua == null || aqua.cheio) return;
+
+                for (int i = 0; i < Player_Save.Instance.Peixes_Aquario.Length; i++)
+                {
+                    if (Player_Save.Instance.Peixes_Aquario[i] == null)
+                    {
+                        Player_Save.Instance.Peixes_Aquario[i] = Peixes[peixe_atual].PrefabVisual;
+                        Peixes.RemoveAt(peixe_atual);
+
+                        FinalizarUsoDePeixe(atualizarAquario: true);
+                        break;
+                    }
+                }
+                break;
+
+            case 3: // COMBUSTÃVEL
+                AlterarFuel();
+                // Remove o peixe do inventÃ¡rio APENAS DEPOIS de aplicar o efeito
+                Peixes.RemoveAt(peixe_atual);
+                FinalizarUsoDePeixe(atualizarAquario: false);
+                break;
+        }
+    }
+
+    void AlterarFome()
+    {
+        // Apenas aplica o status, nÃ£o mexe na lista aqui dentro!
+        gestÃ£o.AlterarFome(Peixes[peixe_atual].Fome);
+    }
+
+    void AlterarFuel()
+    {
+        // Apenas aplica o status, nÃ£o mexe na lista aqui dentro!
+        gestÃ£o.AlterarFuel(Peixes[peixe_atual].Gaso);
+    }
+
+    private void FinalizarUsoDePeixe(bool atualizarAquario)
+    {
+        // Ajusta o Ã­ndice de seleÃ§Ã£o apÃ³s a remoÃ§Ã£o
+        if (peixe_atual >= Peixes.Count)
+        {
+            peixe_atual = Peixes.Count - 1;
+        }
+        if (peixe_atual < 0) peixe_atual = 0;
+
+        if (atualizarAquario && aqua != null)
+        {
+            aqua.SpawnPeixeAqua();
+        }
+
+        // Atualiza os textos e limpa o modelo visual se a lista zerou
+        SpawnPeixe();
     }
 }

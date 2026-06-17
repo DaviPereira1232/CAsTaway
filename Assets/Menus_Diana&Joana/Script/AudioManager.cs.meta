@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3fc280403020f044da52d17db2e5d9ef
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - musicSource: {instanceID: 0}
+  - sfxSource: {instanceID: 0}
+  - background: {fileID: 8300000, guid: 7ee74cfc0e27a1547a2a3f57f980533e, type: 3}
+  - damage: {instanceID: 0}
+  - bubbles: {instanceID: 0}
+  - seaurchin: {instanceID: 0}
+  - finishlevel: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

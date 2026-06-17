@@ -10,6 +10,7 @@ public class ScreenSwitching : MonoBehaviour
     public int currentPos = 0;
     private float camFOV = 40;
     public string currentTrigger = "";
+    private bool mudarDeCena = false;
     //CAM 0 Player
     //CAM 1 Aqua
     //CAM 2 PC
@@ -88,6 +89,11 @@ public class ScreenSwitching : MonoBehaviour
         }
 
         Debug.Log(currentPos);
+
+        if (mudarDeCena == true && !cam_cutscene.GetComponent<Animation>().isPlaying)
+        {
+            SceneManager.LoadScene("Asteroid_LEVEL1");
+        }
     }
 
     void Interact()
@@ -129,6 +135,7 @@ public class ScreenSwitching : MonoBehaviour
         cam_cutscene.gameObject.SetActive(true);
         cam_cutscene.GetComponent<Animation>().Play();
         aperturemesh.GetComponent<Animation>().Play();
+        mudarDeCena = true;
     }
 
 }

@@ -9,6 +9,12 @@ public class FishData : MonoBehaviour
     public bool Recurso_Sani;
     public bool Recurso_Fome;
 
+    public float Gaso = 0;
+    public float Sani = 0;
+    public float Fome = 0;
+
+    public string[] Dialogos;
+
     public GameObject PrefabVisual;
 
 }
@@ -23,6 +29,12 @@ public class FishInfo
     public bool Recurso_Sani;
     public bool Recurso_Fome;
 
+    public float Gaso = 0;
+    public float Sani = 0;
+    public float Fome = 0;
+
+    public string[] Dialogos;
+
     public GameObject PrefabVisual;
 
     public FishInfo(FishData peixe)
@@ -33,6 +45,12 @@ public class FishInfo
         Recurso_Gaso = peixe.Recurso_Gaso;
         Recurso_Sani = peixe.Recurso_Sani;
         Recurso_Fome = peixe.Recurso_Fome;
+
+        Gaso = peixe.Gaso;
+        Sani = peixe.Sani;
+        Fome = peixe.Fome;
+
+        Dialogos = peixe.Dialogos;
 
         PrefabVisual = peixe.PrefabVisual;
     }
