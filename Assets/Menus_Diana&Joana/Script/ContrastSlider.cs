@@ -58,4 +58,8 @@ public class ContrastSlider : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+        public void LoadDefault()
+    {
+        contrastSlider.value = 0f;  // your default
+    }
 }

@@ -19,12 +19,10 @@ public class ColorBlindness : MonoBehaviour
     private int currentIndex = 0;
     private ColorAdjustments colorAdjustments;
     
-    // Each type has: [hueShift, saturation]
-    // These are approximations - adjust for your specific game
     private float[,] settings = {
         { 0f, 0f },     // Normal: no change
-        { 30f, -20f },  // Deuteranopia: green deficiency, slight desaturation
-        { -30f, -20f }, // Protanopia: red deficiency, slight desaturation
+        { 30f, -20f },  // Deuteranopia: green deficiency
+        { -30f, -20f }, // Protanopia: red deficiency
         { 180f, -10f }  // Tritanopia: blue-yellow deficiency
     };
 
@@ -57,12 +55,18 @@ public class ColorBlindness : MonoBehaviour
     {
         if (colorAdjustments == null) return;
         
-        // Enable overrides
         colorAdjustments.hueShift.overrideState = true;
         colorAdjustments.saturation.overrideState = true;
         
-        // Apply settings
         colorAdjustments.hueShift.value = settings[index, 0];
         colorAdjustments.saturation.value = settings[index, 1];
+    }
+
+    // Add this method
+    public void LoadDefault()
+    {
+        currentIndex = 0;  // back to Trichromacy (normal)
+        colorblindnessText.text = types[currentIndex];
+        ApplyColorBlindness(currentIndex);
     }
 }

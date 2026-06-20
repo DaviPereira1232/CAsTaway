@@ -20,12 +20,10 @@ public class ZoomSettings : MonoBehaviour
     void ZoomIn()
     {
         mainCamera.fieldOfView = 30f; // Zoom in
-        Debug.Log("Zoom In: Field of View set to 30");
     }
 
     void ZoomOut()
     {
         mainCamera.fieldOfView = 60f; // Zoom out
-        Debug.Log("Zoom Out: Field of View set to 60");
     }
 }
