@@ -1,16 +1,23 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GestãoDeRecursos : MonoBehaviour
 {
-    private float Fome;
-    private float Sani;
-    private float Fuel;
+    public float Fome;
+    public float Sani;
+    public float Fuel;
 
     public Slider fome_Slider;
     public Slider sani_Slider;
     public Slider fuel_Slider;
 
+    private void Awake()
+    {
+        Fome = 2;
+        Sani = 2;
+        Fuel = 10; 
+    }
     void Start()
     {
         fome_Slider.value = Fome;
