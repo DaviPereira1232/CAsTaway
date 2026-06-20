@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/JG_Expressions_Gato/Gato_Expressões.prefab.meta
 guid: 6279a89c46c512e45b3d26b67e3cd60f
 PrefabImporter:
+========
+guid: 32ec578784f04134bb0680556a8fbac7
+DefaultImporter:
+>>>>>>>> a25b2f19165ac8efa17191ec7ff59fe85371d580:Assets/Scenes/Old Scene/OLDAsteroid_LEVEL1.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
