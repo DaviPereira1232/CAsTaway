@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Subtitles : MonoBehaviour
+public class Language : MonoBehaviour
 {
     public Button leftArrow;
     public Button rightArrow;
