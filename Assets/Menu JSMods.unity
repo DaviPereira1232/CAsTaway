@@ -2103,6 +2103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 766a1bd175a4ec741b1a56789a52aa44, type: 2}
   volumeSlider: {fileID: 450702520}
+  isBackgroundMusic: 1
 --- !u!114 &221496789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5607,6 +5608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 766a1bd175a4ec741b1a56789a52aa44, type: 2}
   volumeSlider: {fileID: 388905516}
+  isBackgroundMusic: 1
 --- !u!1 &623021489
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,6 +7546,57 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &937449472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937449474}
+  - component: {fileID: 937449473}
+  m_Layer: 0
+  m_Name: Player_Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &937449473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937449472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b424988c7cc2b6c49967e491989f388c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FishCaught: []
+  Peixes_Aquario:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!4 &937449474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937449472}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2836244, y: 1.2124424, z: -6.2339077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938123925
 GameObject:
   m_ObjectHideFlags: 0
@@ -8960,6 +9013,8 @@ MonoBehaviour:
   volumeSlider: {fileID: 614500604}
   contrastSlider: {fileID: 2070401955}
   colorBlindness: {fileID: 1159339084}
+  zoomSettings: {fileID: 0}
+  controlsManager: {fileID: 0}
 --- !u!4 &1074127731
 Transform:
   m_ObjectHideFlags: 0
@@ -18395,3 +18450,4 @@ SceneRoots:
   - {fileID: 1695965410}
   - {fileID: 1074127731}
   - {fileID: 1193364769}
+  - {fileID: 937449474}
