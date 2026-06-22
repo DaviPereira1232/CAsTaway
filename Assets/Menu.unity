@@ -2152,6 +2152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 766a1bd175a4ec741b1a56789a52aa44, type: 2}
   volumeSlider: {fileID: 450702520}
+  isBackgroundMusic: 0
 --- !u!114 &221496789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3543,9 +3544,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 614500604}
+      - m_Target: {fileID: 614500600}
         m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
-        m_MethodName: SetMusicVolume
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4218,7 +4219,19 @@ MonoBehaviour:
   m_Value: 0.0001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 221496786}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &458739223
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +5705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 766a1bd175a4ec741b1a56789a52aa44, type: 2}
   volumeSlider: {fileID: 388905516}
+  isBackgroundMusic: 1
 --- !u!1 &623021489
 GameObject:
   m_ObjectHideFlags: 0
