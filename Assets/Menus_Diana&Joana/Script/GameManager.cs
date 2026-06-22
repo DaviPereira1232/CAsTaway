@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static GameManager instance { get; private set; }
 
-    // Update is called once per frame
-    void Update()
+    // References to your settings scripts (will be assigned in each scene)
+    public VolumeSlider volumeSlider;
+    public ContrastSlider contrastSlider;
+    public ColorBlindness colorBlindness;
+    public ZoomSettings zoomSettings;
+    public ControlsManager controlsManager;
+
+    void Awake()
     {
-        
+        // Singleton pattern - only one GameManager exists
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 }

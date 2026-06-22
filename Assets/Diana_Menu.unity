@@ -20,14 +20,14 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.16571736, g: 0.31948057, b: 0.7169812, a: 1}
-  m_AmbientEquatorColor: {r: 0.5660378, g: 0.104129605, b: 0.1592918, a: 1}
-  m_AmbientGroundColor: {r: 1, g: 0.02064565, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 0
-  m_AmbientMode: 1
-  m_SubtractiveShadowColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientMode: 0
+  m_SubtractiveShadowColor: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.354
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 0.216
+  m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -8151,25 +8151,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6309697396017029094, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -1551551218220802453, guid: f75c75b9eb4ac15469e3748ac4390df5, type: 3}
-    - target: {fileID: -910622611208149824, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e6851727c07a63b49b89c566cb5205e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
       propertyPath: m_Name
       value: "Asteroid_\xC1gua (1)"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: -1018664272722485354, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-    - {fileID: -7029948723529949830, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-    - {fileID: -4714817154256824709, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-    - {fileID: 8821623529969584324, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
-    - {fileID: -8694853373958065590, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 314dd4add9c61ad49ade660e1086c7e3, type: 3}
@@ -8253,57 +8240,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962195353}
   m_CullTransparentMesh: 1
---- !u!1 &969189142
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 969189144}
-  - component: {fileID: 969189143}
-  m_Layer: 0
-  m_Name: Player_Save
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &969189143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b424988c7cc2b6c49967e491989f388c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FishCaught: []
-  Peixes_Aquario:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!4 &969189144
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969189142}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2836244, y: 1.2124424, z: -6.2339077}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &987158587
 GameObject:
   m_ObjectHideFlags: 0
@@ -12854,7 +12790,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.28
+  m_Intensity: 0
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -15908,69 +15844,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6309697396017029094, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 764903670827681577, guid: f75c75b9eb4ac15469e3748ac4390df5, type: 3}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.9258997
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.1321466
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.053706534
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.8935866
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.12732495
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.30661264
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.30212584
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.423
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 38.716
-      objectReference: {fileID: 0}
-    - target: {fileID: -1871806605930288132, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 38.213
-      objectReference: {fileID: 0}
-    - target: {fileID: -910622611208149824, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: e6851727c07a63b49b89c566cb5205e7, type: 2}
     - target: {fileID: 919132149155446097, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
       propertyPath: m_Name
       value: "Asteroid_\xC1gua"
       objectReference: {fileID: 0}
-    - target: {fileID: 7754171746062102885, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: -1018664272722485354, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-    - {fileID: -7029948723529949830, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-    - {fileID: -4714817154256824709, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-    - {fileID: -8694853373958065590, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
-    - {fileID: 8821623529969584324, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 27eddbb26e675aa4386d71dfeed65a99, type: 3}
@@ -19119,5 +18998,4 @@ SceneRoots:
   - {fileID: 353666235}
   - {fileID: 1695965410}
   - {fileID: 1193364769}
-  - {fileID: 969189144}
   - {fileID: 1868289268}
