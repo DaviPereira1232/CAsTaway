@@ -51,7 +51,7 @@ public class PlayerHubMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         screen_script.currentTrigger = other.gameObject.name;
 
@@ -69,6 +69,9 @@ public class PlayerHubMovement : MonoBehaviour
 
             case "Trigger_Door":
                 screen_script.DisplayText.text = "Exit";
+                break;
+            case "Trigger_Bed":
+                screen_script.DisplayText.text = "Bed";
                 break;
         }
     }
