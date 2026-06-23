@@ -3787,7 +3787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &556142306
 Animator:
   serializedVersion: 7
@@ -6516,8 +6516,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.82970876, y: 1, z: 1.58}
-  m_Center: {x: -0.4019027, y: 0, z: 0.13032155}
+  m_Size: {x: 0.59841406, y: 1, z: 1.58}
+  m_Center: {x: -0.2862554, y: 0, z: 0.13032152}
 --- !u!4 &860780324 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4244323356933717455, guid: 5972a0edd2ddda74399618485885d320, type: 3}
@@ -8595,8 +8595,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30495253, y: 1, z: 1.58}
-  m_Center: {x: -0.34752357, y: 0, z: 0}
+  m_Size: {x: 0.5997612, y: 1, z: 1.58}
+  m_Center: {x: -0.20011924, y: 0, z: 0}
 --- !u!4 &1029552537
 Transform:
   m_ObjectHideFlags: 0

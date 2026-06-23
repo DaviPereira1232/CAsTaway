@@ -8,6 +8,13 @@ public class TutorialManager : MonoBehaviour
     private static bool tutorialShown = false;
     private bool waitingForFinishAnimation = false;
 
+    private void Awake()
+    {
+        if (GestãoDeRecursos.dia_num > 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void Start()
     {
         Time.timeScale = 0f;
@@ -21,6 +28,7 @@ public class TutorialManager : MonoBehaviour
 
         for (int i = 0; i < tutorialPages.Length; i++)
             tutorialPages[i].SetActive(i == 0);
+
     }
 
     private void Update()
@@ -45,8 +53,15 @@ public class TutorialManager : MonoBehaviour
                 Time.timeScale = 1f;
             }
 
-            tutorialPages[currentPage].SetActive(true);
-        }
+                if (currentPage >= tutorialPages.Length)
+                {
+                    Time.timeScale = 1f;
+                    gameObject.SetActive(false);
+                    return;
+                }
+
+                tutorialPages[currentPage].SetActive(true);
+            }
     }
 
     public void FinishTutorial()
