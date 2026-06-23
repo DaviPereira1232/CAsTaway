@@ -9258,7 +9258,7 @@ MonoBehaviour:
   objectos_peixe: {fileID: 2071683463}
   Full: {fileID: 672302578}
   aqua: {fileID: 1603431955}
-  gestao: {fileID: 0}
+  gestao: {fileID: 717448039}
 --- !u!1 &1126950086
 GameObject:
   m_ObjectHideFlags: 0

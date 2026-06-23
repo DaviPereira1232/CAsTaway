@@ -79410,6 +79410,7 @@ GameObject:
   - component: {fileID: 1139821587}
   - component: {fileID: 1139821589}
   - component: {fileID: 1139821588}
+  - component: {fileID: 1139821590}
   m_Layer: 0
   m_Name: sprite_sheet (2)_0
   m_TagString: Untagged
@@ -79509,6 +79510,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1139821590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139821586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cfc1fffa42fae46897be75afe6db53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tutorialManager: {fileID: 0}
 --- !u!1 &1149629107
 GameObject:
   m_ObjectHideFlags: 0
