@@ -6,29 +6,37 @@ public class TutorialManager : MonoBehaviour
 
     private int currentPage = 0;
 
+    private void Awake()
+    {
+        if (GestãoDeRecursos.dia_num > 1)
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void Start()
     {
         Time.timeScale = 0f;
 
         for (int i = 0; i < tutorialPages.Length; i++)
             tutorialPages[i].SetActive(i == 0);
+
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            tutorialPages[currentPage].SetActive(false);
-            currentPage++;
-
-            if (currentPage >= tutorialPages.Length)
+            if (Input.GetMouseButtonDown(0))
             {
-                Time.timeScale = 1f;
-                gameObject.SetActive(false);
-                return;
-            }
+                tutorialPages[currentPage].SetActive(false);
+                currentPage++;
 
-            tutorialPages[currentPage].SetActive(true);
-        }
+                if (currentPage >= tutorialPages.Length)
+                {
+                    Time.timeScale = 1f;
+                    gameObject.SetActive(false);
+                    return;
+                }
+
+                tutorialPages[currentPage].SetActive(true);
+            }
     }
 }

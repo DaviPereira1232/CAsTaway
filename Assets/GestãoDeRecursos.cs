@@ -4,9 +4,13 @@ using UnityEngine.UI;
 
 public class GestãoDeRecursos : MonoBehaviour
 {
+    public static GestãoDeRecursos Instance;
+
     public static float Fome = 2;
     public static float Sani = 2;
     public static float Fuel = 10;
+
+    public static float Gasolina = 100;
 
     public static int dia_num = 1;
 
@@ -48,5 +52,7 @@ public class GestãoDeRecursos : MonoBehaviour
     public void Resultados()
     {
         resultados_text.text = "Hunger:\r\n" + Fome + "/15\r\nSanity:\r\n" + Sani + "/15\r\nFuel:\r\n" + Fuel + "/100";
+
+        Gasolina = 100;
     }
 }

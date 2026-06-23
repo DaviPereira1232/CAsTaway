@@ -9,13 +9,12 @@ using UnityEngine.UI;
 public class PlayerMovement3 : MonoBehaviour
 {
     public float Speed = 12;
-    public float Fuel = 100;
+    public float FuelGasol;
     public List<FishInfo> FishCaught = new List<FishInfo>();
 
     private Rigidbody rb;
     private float Hori;
     private float Vert;
-    private float StartFuel;
     public Slider slider;
 
     //Jorge Mods:
@@ -29,17 +28,11 @@ public class PlayerMovement3 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0f;
-        StartFuel = Fuel;
+        FuelGasol = GestãoDeRecursos.Gasolina;
 
-        // FIX: Automatically configure the slider to match your fuel limits
         if (slider != null)
         {
-            slider.maxValue = StartFuel;
-            slider.value = Fuel;
-        }
-        else
-        {
-            Debug.LogError($"Slider missing from PlayerMovement3 on {gameObject.name}! Please assign it in the Inspector.");
+            slider.maxValue = 100;
         }
     }
 
@@ -53,16 +46,17 @@ public class PlayerMovement3 : MonoBehaviour
         if (Hori != 0 || Vert != 0)
             drain += 1f;
 
-        Fuel -= drain * Time.deltaTime;
+        FuelGasol -= drain * Time.deltaTime;
 
         if (slider != null)
         {
-            slider.value = Mathf.Max(Fuel, 0f);
+            slider.value = FuelGasol;
+
         }
 
-        if (Fuel <= 0)
+        if (FuelGasol <= 0)
         {
-            SceneManager.LoadScene("Teste");
+            Voltar();
         }
 
         //Fish Gathering 
@@ -79,6 +73,8 @@ public class PlayerMovement3 : MonoBehaviour
 
             Destroy( nearbyFish.GetComponent<SphereCollider>() );
         }
+
+        GestãoDeRecursos.Gasolina = FuelGasol;
     }
 
     private void FixedUpdate()
@@ -202,7 +198,7 @@ public class PlayerMovement3 : MonoBehaviour
             Debug.Log("Hit: " + collision.collider.name);
             //Debug.Log("Ouriço atropelado!");
 
-            Fuel -= 10;
+            FuelGasol -= 10;
 
             canTakeDamage = false;
             StartCoroutine(HitCooldown());
@@ -232,6 +228,11 @@ public class PlayerMovement3 : MonoBehaviour
         }
 
         shipMesh.SetActive(true);
+    }
+
+    public void Voltar()
+    {
+        SceneManager.LoadScene("Teste");
     }
 
 }
