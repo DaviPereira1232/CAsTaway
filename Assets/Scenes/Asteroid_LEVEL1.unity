@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 573620403}
   currentStrength: 20
+  soundCooldown: 2
 --- !u!114 &235609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6090,6 +6091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1545723739}
   currentStrength: 80
+  soundCooldown: 2
 --- !u!114 &7130848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12333,6 +12335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 2048569467}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &52861015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12525,6 +12528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1246686255}
   currentStrength: 45
+  soundCooldown: 2
 --- !u!114 &61895193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19421,6 +19425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 529236369}
   currentStrength: 60
+  soundCooldown: 2
 --- !u!114 &173373661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33748,6 +33753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 246182622}
   currentStrength: 20
+  soundCooldown: 2
 --- !u!114 &355692868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61446,6 +61452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1486603090}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &779058722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61497,7 +61504,7 @@ GameObject:
   - component: {fileID: 784452663}
   - component: {fileID: 784452662}
   m_Layer: 5
-  m_Name: Back
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68565,6 +68572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 991404973}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &840498529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68817,6 +68825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1706709903}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &852932106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69241,6 +69250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1420091129}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &884326504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71390,6 +71400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 488615147}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &1001853483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92405,6 +92416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 350127597}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &1286283866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96282,6 +96294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 759563965}
   currentStrength: 40
+  soundCooldown: 2
 --- !u!114 &1483091465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99476,6 +99489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 200969147}
   currentStrength: 60
+  soundCooldown: 2
 --- !u!114 &1583744086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103525,6 +103539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1625831067}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &1715061609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115671,6 +115686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 649501354}
   currentStrength: 80
+  soundCooldown: 2
 --- !u!114 &1863847631
 MonoBehaviour:
   m_ObjectHideFlags: 0
