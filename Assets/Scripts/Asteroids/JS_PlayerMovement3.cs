@@ -241,6 +241,7 @@ public class PlayerMovement3 : MonoBehaviour
 
     public void Voltar()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Teste");
     }
 

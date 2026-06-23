@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 573620403}
   currentStrength: 20
+  soundCooldown: 2
 --- !u!114 &235609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6090,6 +6091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1545723739}
   currentStrength: 80
+  soundCooldown: 2
 --- !u!114 &7130848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12256,6 +12258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 2048569467}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &52861015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12448,6 +12451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1246686255}
   currentStrength: 45
+  soundCooldown: 2
 --- !u!114 &61895193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19070,6 +19074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 529236369}
   currentStrength: 60
+  soundCooldown: 2
 --- !u!114 &173373661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20951,6 +20956,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4411558430313474597, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d19c266b9af6d31409c4780acb454270, type: 2}
+    - target: {fileID: 832323080639282178, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7778c2311f5a9324f816d38509f68e46, type: 2}
+    - target: {fileID: 1123054084368432229, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0db163cba8a56df41beab92d0579d418, type: 2}
+    - target: {fileID: 1123054084368432229, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ab2030892e25cde4ba1b7c3bd911944e, type: 2}
+    - target: {fileID: 1123054084368432229, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4056663a4037d7f47998b228636e5e9f, type: 2}
     - target: {fileID: 1426507899622431678, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
       propertyPath: m_Interpolate
       value: 1
@@ -33222,6 +33247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 246182622}
   currentStrength: 20
+  soundCooldown: 2
 --- !u!114 &355692868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60548,6 +60574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1486603090}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &779058722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67569,6 +67596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 991404973}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &840498529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67821,6 +67849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1706709903}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &852932106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68245,6 +68274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1420091129}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &884326504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70394,6 +70424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 488615147}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &1001853483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91087,6 +91118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 350127597}
   currentStrength: 15
+  soundCooldown: 2
 --- !u!114 &1286283866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94538,6 +94570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 759563965}
   currentStrength: 40
+  soundCooldown: 2
 --- !u!114 &1483091465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97655,6 +97688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 200969147}
   currentStrength: 60
+  soundCooldown: 2
 --- !u!114 &1583744086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101627,6 +101661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 1625831067}
   currentStrength: 25
+  soundCooldown: 2
 --- !u!114 &1715061609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113620,6 +113655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionPoint: {fileID: 649501354}
   currentStrength: 80
+  soundCooldown: 2
 --- !u!114 &1863847631
 MonoBehaviour:
   m_ObjectHideFlags: 0

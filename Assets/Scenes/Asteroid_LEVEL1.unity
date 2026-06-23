@@ -79522,7 +79522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06cfc1fffa42fae46897be75afe6db53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialManager: {fileID: 0}
+  tutorialManager: {fileID: 1267808752}
 --- !u!1 &1149629107
 GameObject:
   m_ObjectHideFlags: 0
@@ -94246,6 +94246,7 @@ GameObject:
   - component: {fileID: 1416758513}
   - component: {fileID: 1416758512}
   - component: {fileID: 1416758516}
+  - component: {fileID: 1416758517}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -94362,6 +94363,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &1416758517
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416758511}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1417950001
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12122,9 +12122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 717448039}
-        m_TargetAssemblyTypeName: GestaoDeRecursos, Assembly-CSharp
-        m_MethodName: Resultados
+      - m_Target: {fileID: 717448038}
+        m_TargetAssemblyTypeName: ScreenSwitching, Assembly-CSharp
+        m_MethodName: ProximoDia
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
