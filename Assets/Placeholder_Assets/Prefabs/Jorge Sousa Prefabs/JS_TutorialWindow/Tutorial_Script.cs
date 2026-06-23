@@ -10,7 +10,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Gest�oDeRecursos.dia_num > 1)
+        if (GestãoDeRecursos.dia_num > 1)
         {
             Destroy(this.gameObject);
         }
