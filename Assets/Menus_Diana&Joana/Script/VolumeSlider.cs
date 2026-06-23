@@ -6,7 +6,6 @@ public class VolumeSlider : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private Slider volumeSlider;
-
     [SerializeField] private bool isBackgroundMusic = true;
 
     private void Start()
@@ -20,10 +19,10 @@ public class VolumeSlider : MonoBehaviour
         if (isBackgroundMusic)
         {
             volumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 1f);
-            audioMixer.SetFloat("Music", Mathf.Log10(volumeSlider.value) * 20);
+            SetMusicVolume(volumeSlider.value);
         } else {
             volumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1f);
-            audioMixer.SetFloat("SFX", Mathf.Log10(volumeSlider.value) * 20);
+            SetSFXVolume(volumeSlider.value);
         }
     }
 
@@ -31,14 +30,25 @@ public class VolumeSlider : MonoBehaviour
     {
         if (isBackgroundMusic)
         {
-             PlayerPrefs.SetFloat("MusicVolume", value);
-            audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
-             Debug.Log("Volume Background Music set to: " + value);
+            PlayerPrefs.SetFloat("MusicVolume", value);
+            SetMusicVolume(value);
+            
         } else {
-            PlayerPrefs.SetFloat("SFXVolume", value);   
-            audioMixer.SetFloat("SFX", Mathf.Log10(value) * 20);
-            Debug.Log("Volume SFX set to: " + value);
+            PlayerPrefs.SetFloat("SFXVolume", value);
+            SetSFXVolume(value);
         }
+    }
+    private void SetMusicVolume(float value)
+    {
+        float dB = value > 0.0001f ? Mathf.Log10(value) * 20 : -80f;
+        audioMixer.SetFloat("Music", dB);
+        Debug.Log($"Music Volume: {value} -> {dB}dB");
+    }
+    private void SetSFXVolume(float value)
+    {
+        float dB = value > 0.0001f ? Mathf.Log10(value) * 20 : -80f;
+        audioMixer.SetFloat("SFX", dB);
+        Debug.Log($"SFX Volume: {value} -> {dB}dB");  
     }
 
     public void LoadDefault()
@@ -46,10 +56,12 @@ public class VolumeSlider : MonoBehaviour
         if (isBackgroundMusic)
         {
             PlayerPrefs.SetFloat("MusicVolume", 1f);
-            audioMixer.SetFloat("Music", Mathf.Log10(1f) * 20);
+            SetMusicVolume(1f);
+            volumeSlider.value = 1f;
         } else {
             PlayerPrefs.SetFloat("SFXVolume", 1f);
-            audioMixer.SetFloat("SFX", Mathf.Log10(1f) * 20);
+            SetSFXVolume(1f);
+            volumeSlider.value = 1f;
         }
     }
 }
