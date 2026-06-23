@@ -18,13 +18,14 @@ public class ScreenSwitching : MonoBehaviour
     public GameObject Aqua_UI;
     public GameObject PC_UI;
     public Camera cam;
-    public Camera cam_cutscene;
+    public Camera sleeping_cutscene;  
+    public Camera leaving_cutscene;
     public GameObject monitormesh;
     public GameObject aperturemesh;
 
     void Start()
     {
-       
+        sleeping_cutscene.gameObject.SetActive(false);
     }
 
     void Update()
@@ -55,6 +56,12 @@ public class ScreenSwitching : MonoBehaviour
             cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, camPoses[3].transform.rotation, Time.deltaTime * 5);
             camFOV = 45;
         }
+        else if (currentPos == 4)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, camPoses[4].transform.position, Time.deltaTime * 5);
+            cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, camPoses[4].transform.rotation, Time.deltaTime * 5);
+            camFOV = 45;
+        }
         else if (currentPos == 0)
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position, camPoses[0].transform.position, Time.deltaTime * 4);
@@ -82,6 +89,10 @@ public class ScreenSwitching : MonoBehaviour
                 Sair();
             }
         }
+        else if (Vector3.Distance(cam.transform.position, camPoses[4].position) < 0.0001f)
+        {
+            sleeping_cutscene.gameObject.SetActive(true);
+        }
         else
         {
             Aqua_UI.SetActive(false);
@@ -90,7 +101,7 @@ public class ScreenSwitching : MonoBehaviour
 
         Debug.Log(currentPos);
 
-        if (mudarDeCena == true && !cam_cutscene.GetComponent<Animation>().isPlaying)
+        if (mudarDeCena == true && !leaving_cutscene.GetComponent<Animation>().isPlaying)
         {
             SceneManager.LoadScene("Asteroid_LEVEL1");
         }
@@ -110,9 +121,12 @@ public class ScreenSwitching : MonoBehaviour
                     currentPos = 1;
                     monitormesh.GetComponent<Animation>().Play("Non_Static");
                     break;
-
                 case "Trigger_Door":
                     currentPos = 3;
+                    break;
+                case "Trigger_Bed":
+                    currentPos = 4;
+                    this.gameObject.GetComponent<GestãoDeRecursos>().Resultados();
                     break;
             }
 
@@ -132,10 +146,16 @@ public class ScreenSwitching : MonoBehaviour
     public void Sair()
     {
         cam.gameObject.SetActive(false);
-        cam_cutscene.gameObject.SetActive(true);
-        cam_cutscene.GetComponent<Animation>().Play();
+        leaving_cutscene.gameObject.SetActive(true);
+        leaving_cutscene.GetComponent<Animation>().Play();
         aperturemesh.GetComponent<Animation>().Play();
         mudarDeCena = true;
+    }
+
+    public void PróximoDia()
+    {
+        GestãoDeRecursos.dia_num += 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

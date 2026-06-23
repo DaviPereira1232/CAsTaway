@@ -18,13 +18,12 @@ public class Aquarium : MonoBehaviour
     void Start()
     {
 
-        if (Player_Save.Instance.Peixes_Aquario != null)
+        if (Player_Save.Instance != null)
         {
             Peixes_Aquario = Player_Save.Instance.Peixes_Aquario;
-        }
-
             inst_peixes = new GameObject[Peixes_Aquario.Length];
-        SpawnPeixeAqua();
+            SpawnPeixeAqua();
+        }
 
         for (int i = 0; i < balão.Length; i++)
         {
