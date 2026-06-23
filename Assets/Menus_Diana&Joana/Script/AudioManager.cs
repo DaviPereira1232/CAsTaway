@@ -137,16 +137,16 @@ public class AudioManager : MonoBehaviour
     }
 
     // Convenience methods for your specific sounds
-    public void PlayDamage() => PlaySFX(damage, 0.8f);
-    public void PlayBubbles() => PlaySFX(bubbles, 0.6f);
+    public void PlayDamage() => PlaySFX(damage, 0.1f);
+    public void PlayBubbles(float volume = 1f) => PlaySFX(bubbles, volume);
     public void PlaySuccess() => PlaySFX(success, 1f);
     public void PlayPartialSuccess() => PlaySFX(partialSucess, 1f);
     public void PlayScaredCat() => PlaySFX(scaredCat, 1f);
     public void PlayHappyCat() => PlaySFX(happyCat, 1f);
     public void PlayUnwellCat() => PlaySFX(unwellCat, 0.9f);
-    public void PlayComputer() => PlaySFX(computer, 0.7f);
-    public void PlayExitingSpaceship() => PlaySFX(exitingSpaceship, 1f);
-    public void PlayCatSleeping() => PlaySFX(catSleeping, 0.5f);
+    public void PlayComputer() => PlaySFX(computer, 0.6f);
+    public void PlayExitingSpaceship() => PlaySFX(exitingSpaceship, 0.2f);
+    public void PlayCatSleeping(float volume = 0.8f) => PlaySFX(catSleeping, volume);
 
     // Play sounds at specific positions for 3D audio
     public void PlayBubblesAtPosition(Vector3 position) => PlaySFX(bubbles, 0.6f, position);

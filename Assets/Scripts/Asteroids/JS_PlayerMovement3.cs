@@ -193,13 +193,10 @@ public class PlayerMovement3 : MonoBehaviour
     {
         if (!canTakeDamage) return;
 
-        if (AudioManager.Instance == null)
+        if (AudioManager.Instance != null)
         {
-            Debug.LogError("AudioManager.Instance is NULL! Is the AudioManager in the scene?");
-        }
-        else
-        {
-            Debug.Log("Playing damage sound...");
+            //Debug.LogError("AudioManager.Instance is NULL! Is the AudioManager in the scene?");
+            //Debug.Log("Playing damage sound...");
             AudioManager.Instance.PlayDamage();
         }
 
