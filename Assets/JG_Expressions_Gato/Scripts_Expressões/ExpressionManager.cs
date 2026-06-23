@@ -40,12 +40,15 @@ public class ExpressionController : MonoBehaviour
 
         if (scare != null)
             scare.SetActive(currentExpression == ExpressionType.Scare);
+            AudioManager.Instance.PlayScaredCat();
             
         if (happy != null)
             happy.SetActive(currentExpression == ExpressionType.Happy);
+            AudioManager.Instance.PlayHappyCat();
 
         if (xx != null)
             xx.SetActive(currentExpression == ExpressionType.XX);
+            AudioManager.Instance.PlayUnwellCat();
     }
 
   private IEnumerator BlinkLoop()
