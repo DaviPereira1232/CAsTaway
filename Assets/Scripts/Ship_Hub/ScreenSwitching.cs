@@ -119,7 +119,7 @@ public class ScreenSwitching : MonoBehaviour
 
                 case "Trigger_PC":
                     currentPos = 1;
-                    AudioManager.Instance.PlayComputer();
+                    AudioManager.Instance.PlayComputer();   
                     monitormesh.GetComponent<Animation>().Play("Non_Static");
                     break;
                 case "Trigger_Door":
