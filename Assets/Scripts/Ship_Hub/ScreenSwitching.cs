@@ -36,7 +36,7 @@ public class ScreenSwitching : MonoBehaviour
             Interact();
         }
 
-        //Mudar posição da câmera
+        //Mudar posiï¿½ï¿½o da cï¿½mera
         if (currentPos == 1)
         {
             cam.transform.position = Vector3.Lerp(cam.transform.position,camPoses[1].transform.position, Time.deltaTime * 5);
@@ -119,6 +119,7 @@ public class ScreenSwitching : MonoBehaviour
 
                 case "Trigger_PC":
                     currentPos = 1;
+                    AudioManager.Instance.PlayComputer();
                     monitormesh.GetComponent<Animation>().Play("Non_Static");
                     break;
                 case "Trigger_Door":
@@ -126,7 +127,8 @@ public class ScreenSwitching : MonoBehaviour
                     break;
                 case "Trigger_Bed":
                     currentPos = 4;
-                    this.gameObject.GetComponent<GestãoDeRecursos>().Resultados();
+                    AudioManager.Instance.PlayCatSleeping();
+                    this.gameObject.GetComponent<GestaoDeRecursos>().Resultados();
                     break;
             }
 
@@ -152,9 +154,9 @@ public class ScreenSwitching : MonoBehaviour
         mudarDeCena = true;
     }
 
-    public void PróximoDia()
+    public void ProximoDia()
     {
-        GestãoDeRecursos.dia_num += 1;
+        GestaoDeRecursos.dia_num += 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

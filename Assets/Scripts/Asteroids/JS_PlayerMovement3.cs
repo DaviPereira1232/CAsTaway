@@ -28,7 +28,7 @@ public class PlayerMovement3 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.linearDamping = 0f;
-        FuelGasol = GestãoDeRecursos.Gasolina;
+        FuelGasol = GestaoDeRecursos.Gasolina;
 
         if (slider != null)
         {
@@ -74,7 +74,7 @@ public class PlayerMovement3 : MonoBehaviour
             Destroy( nearbyFish.GetComponent<SphereCollider>() );
         }
 
-        GestãoDeRecursos.Gasolina = FuelGasol;
+        GestaoDeRecursos.Gasolina = FuelGasol;
     }
 
     private void FixedUpdate()

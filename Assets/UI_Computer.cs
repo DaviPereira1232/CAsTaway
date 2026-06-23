@@ -26,7 +26,7 @@ public class UI_Computer : MonoBehaviour
     public GameObject objectos_peixe;
     public GameObject Full;
     public Aquarium aqua;
-    public GestãoDeRecursos gestão;
+    public GestaoDeRecursos gestao;
 
     void Start()
     {
@@ -72,9 +72,9 @@ public class UI_Computer : MonoBehaviour
         Main_Alt_Text[1].enabled = (texto == 2);
     }
 
-    public void MudarMenu(int próximo_menu)
+    public void MudarMenu(int proximo_menu)
     {
-        qual_menu = próximo_menu;
+        qual_menu = proximo_menu;
     }
 
     public void EscolherPlaneta(int selecionado)
@@ -182,13 +182,13 @@ public class UI_Computer : MonoBehaviour
     void AlterarFome()
     {
         // Apenas aplica o status, não mexe na lista aqui dentro!
-        gestão.AlterarFome(Peixes[peixe_atual].Fome);
+        gestao.AlterarFome(Peixes[peixe_atual].Fome);
     }
 
     void AlterarFuel()
     {
         // Apenas aplica o status, não mexe na lista aqui dentro!
-        gestão.AlterarFuel(Peixes[peixe_atual].Gaso);
+        gestao.AlterarFuel(Peixes[peixe_atual].Gaso);
     }
 
     private void FinalizarUsoDePeixe(bool atualizarAquario)

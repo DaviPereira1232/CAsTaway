@@ -2,9 +2,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GestãoDeRecursos : MonoBehaviour
+public class GestaoDeRecursos : MonoBehaviour
 {
-    public static GestãoDeRecursos Instance;
+    public static GestaoDeRecursos Instance;
 
     public static float Fome = 2;
     public static float Sani = 2;
