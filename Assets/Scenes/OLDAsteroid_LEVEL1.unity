@@ -18553,7 +18553,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 9119713419571803289, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 8744453579220217720, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 568383199}
     m_AddedComponents:
@@ -18569,9 +18569,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6847032846243025075, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
   m_PrefabInstance: {fileID: 230526787}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &230526789 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3099108176742904080, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
+--- !u!4 &230526789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8744453579220217720, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
   m_PrefabInstance: {fileID: 230526787}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &230526790
@@ -18590,7 +18590,7 @@ MonoBehaviour:
   Fuel: 100
   barrinha: {fileID: 531716694}
   Fish_caught: []
-  shipMesh: {fileID: 230526789}
+  shipMesh: {fileID: 0}
 --- !u!114 &230526795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18605,9 +18605,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 12
   Fuel: 100
-  barrinha: {fileID: 531716694}
-  Fish_caught: []
-  shipMesh: {fileID: 230526789}
+  FishCaught: []
+  slider: {fileID: 0}
+  shipMesh: {fileID: 0}
 --- !u!1 &235111883
 GameObject:
   m_ObjectHideFlags: 0
@@ -33794,7 +33794,7 @@ Transform:
   m_LocalScale: {x: 1.6763719, y: 1, z: 1.3460603}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1440534406}
+  m_Father: {fileID: 230526789}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &570348018
 GameObject:
@@ -84429,11 +84429,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2582583557096529689, guid: 8eb30b37eebc7d6459967d19564e3e69, type: 3}
   m_PrefabInstance: {fileID: 728767977}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1440534406 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9119713419571803289, guid: e024cc2bec5db4c43b41942befc915c5, type: 3}
-  m_PrefabInstance: {fileID: 230526787}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1445497032 stripped
 Transform:
