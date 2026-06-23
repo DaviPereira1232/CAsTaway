@@ -124,6 +124,7 @@ public class ScreenSwitching : MonoBehaviour
                     break;
                 case "Trigger_Door":
                     currentPos = 3;
+                    AudioManager.Instance.PlayExitingSpaceship();
                     break;
                 case "Trigger_Bed":
                     currentPos = 4;
