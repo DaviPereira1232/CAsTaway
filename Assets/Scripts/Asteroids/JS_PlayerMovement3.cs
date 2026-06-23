@@ -186,23 +186,35 @@ public class PlayerMovement3 : MonoBehaviour
         }
     }
 
-    //Adicionei uma função para pegar na corrente
+    //Adicionei uma funï¿½ï¿½o para pegar na corrente
     public void ApplyCurrent(Vector2 direction, float strength)
     {
         currentForce += direction.normalized * strength;
     }
 
-    //Função para detetar tag de obstáculo
+    //Funï¿½ï¿½o para detetar tag de obstï¿½culo
     private void OnCollisionEnter(Collision collision)
     {
         if (!canTakeDamage) return;
 
+        if (AudioManager.Instance == null)
+        {
+            Debug.LogError("AudioManager.Instance is NULL! Is the AudioManager in the scene?");
+        }
+        else
+        {
+            Debug.Log("Playing damage sound...");
+            AudioManager.Instance.PlayDamage();
+        }
+
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Hit: " + collision.collider.name);
-            //Debug.Log("Ouriço atropelado!");
+            //Debug.Log("Ouriï¿½o atropelado!");
 
             Fuel -= 10;
+
+
 
             canTakeDamage = false;
             StartCoroutine(HitCooldown());
@@ -214,7 +226,7 @@ public class PlayerMovement3 : MonoBehaviour
     {
         canTakeDamage = false;
 
-        Debug.Log("Ouriço atropelado!");
+        Debug.Log("Ouriï¿½o atropelado!");
 
         yield return new WaitForSeconds(0.3f);
 
