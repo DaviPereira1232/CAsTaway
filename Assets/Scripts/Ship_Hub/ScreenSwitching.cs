@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class ScreenSwitching : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ScreenSwitching : MonoBehaviour
     public Camera leaving_cutscene;
     public GameObject monitormesh;
     public GameObject aperturemesh;
+
+    public TextMeshProUGUI fuelWarningText;
 
     void Start()
     {
@@ -122,7 +125,20 @@ public class ScreenSwitching : MonoBehaviour
                     AudioManager.Instance.PlayComputer();   
                     monitormesh.GetComponent<Animation>().Play("Non_Static");
                     break;
+
                 case "Trigger_Door":
+
+                    if (GestaoDeRecursos.Gasolina <= 0)
+                    {
+                        Debug.Log("Sem Gasolina!!");
+
+                        fuelWarningText.text = "Out of fuel for today";
+                        fuelWarningText.gameObject.SetActive(true);
+                        StartCoroutine(HideFuelMessage());
+
+                        return; // <-- stops Interact() completely
+                    }
+
                     currentPos = 3;
                     AudioManager.Instance.PlayExitingSpaceship();
                     break;
@@ -148,17 +164,32 @@ public class ScreenSwitching : MonoBehaviour
 
     public void Sair()
     {
+        if (GestaoDeRecursos.Gasolina <= 0)
+        {
+            Debug.Log("Sem Gasolina!!");
+            fuelWarningText.text = "Out of fuel for today";
+            fuelWarningText.gameObject.SetActive(true);
+            StartCoroutine(HideFuelMessage());
+            return;
+        }
         cam.gameObject.SetActive(false);
         leaving_cutscene.gameObject.SetActive(true);
         leaving_cutscene.GetComponent<Animation>().Play();
         aperturemesh.GetComponent<Animation>().Play();
         mudarDeCena = true;
+        
     }
 
     public void ProximoDia()
     {
         GestaoDeRecursos.dia_num += 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    IEnumerator HideFuelMessage()
+    {
+        yield return new WaitForSeconds(3f);
+        fuelWarningText.gameObject.SetActive(false);
     }
 
 }
