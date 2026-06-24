@@ -1,10 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GestaoDeRecursos : MonoBehaviour
 {
     public static GestaoDeRecursos Instance;
+
+    public Aquarium aqua;
 
     public static float Fome = 2;
     public static float Sani = 2;
@@ -13,6 +16,8 @@ public class GestaoDeRecursos : MonoBehaviour
     public static float Gasolina = 100;
 
     public static int dia_num = 1;
+
+    private bool sobreviveu = true;
 
     public TextMeshProUGUI dia_text;
 
@@ -51,8 +56,42 @@ public class GestaoDeRecursos : MonoBehaviour
 
     public void Resultados()
     {
-        resultados_text.text = "Hunger:\r\n" + Fome + "/15\r\nSanity:\r\n" + Sani + "/15\r\nFuel:\r\n" + Fuel + "/100";
+        if (Fome - 2 <= 0 && Sani - 2 <= 0)
+        {
+            resultados_text.text = "You lost!\r\n";
+            sobreviveu = false;
+        }
+        else
+        {
+            resultados_text.text =
+                "Hunger:" +
+                "\r\n" + Fome + "/15 > " + (Fome - 2) + "/15" +
+                "\r\nSanity:" +
+                "\r\n" + Sani + "/15 > " + (Sani - 2) + "/15" +
+                "\r\nFuel:" +
+                "\r\n" + Fuel + "/100";
+            sobreviveu = true;
+        }
 
         Gasolina = 100;
+
+        Fome =- 2;
+        Sani = -2;
+
+        aqua.ReduzirVida();
+    }
+
+    public void ProximoDia()
+    {
+        if (sobreviveu == true)
+        {
+            dia_num += 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        else if (sobreviveu == false)
+        {
+            dia_num = 1;
+            SceneManager.LoadScene("Menu");
+        }
     }
 }

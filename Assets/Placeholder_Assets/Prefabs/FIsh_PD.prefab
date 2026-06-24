@@ -555,7 +555,8 @@ MonoBehaviour:
   Recurso_Fome: 1
   Gaso: 0
   Sani: 1
-  Fome: 0.5
+  Fome: 2
+  vida: 1
   Dialogos:
   - glugluglu
   - glaglagla

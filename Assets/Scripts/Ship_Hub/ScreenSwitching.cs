@@ -179,13 +179,6 @@ public class ScreenSwitching : MonoBehaviour
         mudarDeCena = true;
         
     }
-
-    public void ProximoDia()
-    {
-        GestaoDeRecursos.dia_num += 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     IEnumerator HideFuelMessage()
     {
         yield return new WaitForSeconds(3f);
