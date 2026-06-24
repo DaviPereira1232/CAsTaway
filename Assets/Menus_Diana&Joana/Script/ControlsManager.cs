@@ -35,6 +35,8 @@ public class ControlsManager : MonoBehaviour
         KeyBindings["Right"] = defaultRight;
         KeyBindings["Capture"] = defaultCapture;
 
+        LoadSavedControls();
+
         // Setup input fields
         SetupField(upInputField, "Up", defaultUp);
         SetupField(downInputField, "Down", defaultDown);
@@ -158,5 +160,29 @@ public class ControlsManager : MonoBehaviour
             PlayerPrefs.SetInt(binding.Key + "Key", (int)binding.Value);
         }
         PlayerPrefs.Save();
+    }
+
+    public void LoadSavedControls()
+    {
+        // Load saved keys from PlayerPrefs, falling back to defaults
+        KeyBindings["Up"] = (KeyCode)PlayerPrefs.GetInt("UpKey", (int)defaultUp);
+        KeyBindings["Down"] = (KeyCode)PlayerPrefs.GetInt("DownKey", (int)defaultDown);
+        KeyBindings["Left"] = (KeyCode)PlayerPrefs.GetInt("LeftKey", (int)defaultLeft);
+        KeyBindings["Right"] = (KeyCode)PlayerPrefs.GetInt("RightKey", (int)defaultRight);
+        KeyBindings["Capture"] = (KeyCode)PlayerPrefs.GetInt("CaptureKey", (int)defaultCapture);
+
+        // Update the input field text displays
+        if (upInputField != null)
+            upInputField.text = GetKeyDisplayName(KeyBindings["Up"]);
+        if (downInputField != null)
+            downInputField.text = GetKeyDisplayName(KeyBindings["Down"]);
+        if (leftInputField != null)
+            leftInputField.text = GetKeyDisplayName(KeyBindings["Left"]);
+        if (rightInputField != null)
+            rightInputField.text = GetKeyDisplayName(KeyBindings["Right"]);
+        if (captureInputField != null)
+            captureInputField.text = GetKeyDisplayName(KeyBindings["Capture"]);
+
+        Debug.Log("Controls loaded from PlayerPrefs");
     }
 }

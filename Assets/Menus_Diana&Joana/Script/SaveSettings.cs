@@ -1,49 +1,60 @@
 using UnityEngine;
 
-public class SettingsPanel : MonoBehaviour
+public class SaveSettings : MonoBehaviour
 {
     public VolumeSlider volumeSlider;
     public ContrastSlider contrastSlider;
-    public ColorBlindness colorBlindness;  
+    public ColorBlindness colorBlindness;
     public ZoomSettings zoomSettings;
-    public ControlsManager controlsManager; // Add this reference
+    public ControlsManager controlsManager;
+    public MouseSensitivity mouseSensitivityController;
 
     public void OnYesClicked()
     {
-        // Changes stay - do nothing
+        // Save all settings
+        if (GameManager.Instance != null)
+            GameManager.Instance.SaveAllSettings();
     }
 
     public void OnNoClicked()
-    {  
-        // Reset volume
+    {
+        // Use GameManager's reset if available, otherwise fall back to local reset
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetAllSettings();
+        }
+        else
+        {
+            LocalReset();
+        }
+    }
+
+    void LocalReset()
+    {
         PlayerPrefs.DeleteKey("MusicVolume");
         volumeSlider.LoadDefault();
 
-        // Reset contrast
         PlayerPrefs.DeleteKey("Contrast");
         contrastSlider.LoadDefault();
 
-        // Reset color blindness
         PlayerPrefs.DeleteKey("ColorBlindnessType");
         colorBlindness.LoadDefault();
 
-        // Reset zoom
         PlayerPrefs.DeleteKey(ZoomSettings.zoomPrefKey);
         zoomSettings.LoadZoomState();
 
-        // Reset controls - Delete all control keys from PlayerPrefs
         DeleteControlKeys();
-        
-        // Reset controls to defaults
         controlsManager.ResetToDefaults();
 
-        // Save all deletions at once
+        PlayerPrefs.DeleteKey("MouseSensitivity");
+        if (mouseSensitivityController != null)
+            mouseSensitivityController.ResetToDefault();
+
         PlayerPrefs.Save();
     }
 
     void DeleteControlKeys()
     {
-        // Delete all control keys from PlayerPrefs
         PlayerPrefs.DeleteKey("UpKey");
         PlayerPrefs.DeleteKey("DownKey");
         PlayerPrefs.DeleteKey("LeftKey");
