@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class SettingsPanel : MonoBehaviour
 {
-    public VolumeSlider volumeSlider;
-    public ContrastSlider contrastSlider;
-    public ColorBlindness colorBlindness;  
-    public ZoomSettings zoomSettings;
-    public ControlsManager controlsManager; // Add this reference
+    public VolumeSlider volumeSlider; //volume slider for the music
+    public ContrastSlider contrastSlider; //slider for the contrast
+    public ColorBlindness colorBlindness; //different filters for color blindness 
+    public ZoomSettings zoomSettings; //on & off button for zoom in or zoom out
+    public ControlsManager controlsManager; // controls input manager
+    public MouseSensitivity mouseSensitivityController; //mouse sensitivity
 
     public void OnYesClicked()
     {
@@ -36,6 +37,13 @@ public class SettingsPanel : MonoBehaviour
         
         // Reset controls to defaults
         controlsManager.ResetToDefaults();
+
+        // Reset mouse Sensitivity
+        PlayerPrefs.DeleteKey("MouseSensitivity");
+        if (mouseSensitivityController != null)
+        {
+            mouseSensitivityController.ResetToDefault();
+        }
 
         // Save all deletions at once
         PlayerPrefs.Save();
