@@ -44,14 +44,20 @@ public class MouseSensitivity : MonoBehaviour
         
     }
 
-        public void ResetToDefault()
+    public void LoadSavedSensitivity()
     {
-        Debug.Log("Resetting mouse sensitivity to default");
-        MouseSensitivityControls = defaultSensitivity;
-        if (sensitivitySlider != null)
-        {
-        sensitivitySlider.value = defaultSensitivity;
-        PlayerPrefs.SetFloat("MouseSensitivity", defaultSensitivity);
-        }
+        float savedSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 1f);
+        // Apply the saved sensitivity to your slider/controller
+        // ... your existing code to update UI and apply sensitivity
+        
+        Debug.Log($"Mouse sensitivity loaded: {savedSensitivity}");
+    }
+
+    public void ResetToDefault()
+    {
+        // Reset to default sensitivity
+        PlayerPrefs.SetFloat("MouseSensitivity", 1f);
+        PlayerPrefs.Save();
+        LoadSavedSensitivity(); // Reload after reset
     }
 }
