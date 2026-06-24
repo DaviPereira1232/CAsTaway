@@ -38,8 +38,8 @@ public class PlayerMovement3 : MonoBehaviour
 
     void Update()
     {
-        Hori = Input.GetAxis("Horizontal");
-        Vert = Input.GetAxis("Vertical");
+        Hori = Input.GetAxis("Horizontal") * MouseSensitivity.MouseSensitivityControls;
+        Vert = Input.GetAxis("Vertical") * MouseSensitivity.MouseSensitivityControls;
 
         float drain = 1f;
 
