@@ -18787,7 +18787,7 @@ GameObject:
   - component: {fileID: 165775408}
   m_Layer: 0
   m_Name: Global Volume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18808,7 +18808,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: fb749c0cbf75e7f4cadaaf4caa785401, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 138009ca96d32c045ab0288b9acc52e7, type: 2}
 --- !u!4 &165775409
 Transform:
   m_ObjectHideFlags: 0

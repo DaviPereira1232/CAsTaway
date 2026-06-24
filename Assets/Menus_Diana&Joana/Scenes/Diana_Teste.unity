@@ -1017,50 +1017,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 78ade96a1d8cfac46aaf1dbba3797e34, type: 3}
   m_PrefabInstance: {fileID: 680355066}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &221172486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 221172488}
-  - component: {fileID: 221172487}
-  m_Layer: 0
-  m_Name: Volume Tester
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &221172487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221172486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 113121c48be01884897967e9fb60bc58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &221172488
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221172486}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 949.01404, y: 568.0347, z: 0.6915436}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &232558725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a4a22f38e85f5b418294c97fcbc53de, type: 3}
@@ -4133,7 +4089,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: fb749c0cbf75e7f4cadaaf4caa785401, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 138009ca96d32c045ab0288b9acc52e7, type: 2}
 --- !u!4 &571904153
 Transform:
   m_ObjectHideFlags: 0
@@ -18359,4 +18315,3 @@ SceneRoots:
   - {fileID: 1681587008}
   - {fileID: 571904153}
   - {fileID: 1916266531}
-  - {fileID: 221172488}
