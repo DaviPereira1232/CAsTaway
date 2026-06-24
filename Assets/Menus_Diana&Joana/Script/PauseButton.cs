@@ -21,6 +21,6 @@ public class PauseButton : MonoBehaviour
         PlayerPrefs.Save();
         
         // Load the menus scene
-        SceneManager.LoadScene(buildIndex);
+        SceneManager.LoadScene(buildIndex, LoadSceneMode.Additive);
     }
 }
