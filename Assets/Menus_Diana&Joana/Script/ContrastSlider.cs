@@ -10,32 +10,72 @@ public class ContrastSlider : MonoBehaviour
     public Volume postProcessVolume;
     
     private ColorAdjustments colorAdjustments;
+    private const string ContrastKey = "Contrast";
 
     void Start()
     {
-        
-        // Check if Volume is assigned
-        if (postProcessVolume == null)
-        {
-            return;
-        }
+        // Find slider if not assigned
+        if (contrastSlider == null)
+            contrastSlider = GetComponent<Slider>();
+
+        // Find volume if not assigned
+        FindPostProcessVolume();
         
         // Try to get Color Adjustments
-        if (postProcessVolume.profile.TryGet(out colorAdjustments))
+        if (postProcessVolume != null && postProcessVolume.profile.TryGet(out colorAdjustments))
         {
-            
             // Load saved value
-            float savedValue = PlayerPrefs.GetFloat("Contrast", 0f);
+            float savedValue = PlayerPrefs.GetFloat(ContrastKey, 0f);
             
             // Set slider
-            contrastSlider.value = savedValue;
+            if (contrastSlider != null)
+                contrastSlider.value = savedValue;
             
             // Apply
             ApplyContrast(savedValue);
-        }  
+        }
+        
         // Add listener
-        contrastSlider.onValueChanged.AddListener(OnSliderChanged);
+        if (contrastSlider != null)
+            contrastSlider.onValueChanged.AddListener(OnSliderChanged);
+    }
 
+    // Call this when scene changes to find new volume
+    public void RefreshSceneReferences()
+    {
+        FindPostProcessVolume();
+        
+        // Re-apply current contrast to the new volume
+        float currentContrast = PlayerPrefs.GetFloat(ContrastKey, 0f);
+        
+        if (postProcessVolume != null && postProcessVolume.profile.TryGet(out colorAdjustments))
+        {
+            ApplyContrast(currentContrast);
+        }
+    }
+
+    void FindPostProcessVolume()
+    {
+        // Option 1: Find by tag (recommended - tag your Global Volume in each scene)
+        GameObject volumeObj = GameObject.FindGameObjectWithTag("GlobalVolume");
+        if (volumeObj != null)
+        {
+            postProcessVolume = volumeObj.GetComponent<Volume>();
+            return;
+        }
+
+        // Option 2: Find first volume in scene
+        postProcessVolume = FindFirstObjectByType<Volume>();
+        
+        // Option 3: Try to find camera's volume
+        if (postProcessVolume == null)
+        {
+            Camera mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                postProcessVolume = mainCamera.GetComponent<Volume>();
+            }
+        }
     }
 
     void OnSliderChanged(float sliderValue)
@@ -52,14 +92,29 @@ public class ContrastSlider : MonoBehaviour
             
             // Apply the value
             colorAdjustments.contrast.value = value;
-            
-            // Save
-            PlayerPrefs.SetFloat("Contrast", value);
-            PlayerPrefs.Save();
         }
+        
+        // Save regardless (so it persists)
+        PlayerPrefs.SetFloat(ContrastKey, value);
+        PlayerPrefs.Save();
     }
-        public void LoadDefault()
+
+    public void LoadDefault()
     {
-        contrastSlider.value = 0f;  // your default
+        float defaultValue = 0f;
+        
+        if (contrastSlider != null)
+            contrastSlider.value = defaultValue;
+        
+        ApplyContrast(defaultValue);
+        
+        Debug.Log("Contrast reset to default");
+    }
+
+    // Clean up listener when destroyed
+    void OnDestroy()
+    {
+        if (contrastSlider != null)
+            contrastSlider.onValueChanged.RemoveListener(OnSliderChanged);
     }
 }

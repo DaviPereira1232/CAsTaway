@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections; // Add this for IEnumerator
 
 public class GameManager : MonoBehaviour
 {
-    // Singleton instance
     public static GameManager Instance { get; private set; }
-    // References to your settings managers (assign in inspector or find automatically)
+
     [Header("Settings References")]
     public VolumeSlider volumeSlider;
     public ContrastSlider contrastSlider;
@@ -28,14 +28,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // If these aren't assigned in inspector, try to find them
         FindSettingReferences();
-        
-        // Load all PlayerPrefs through the settings managers
         LoadAllSettings();
     }
 
-    // Called when loading a new scene
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -46,14 +42,14 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // After scene loads, re-find references and reapply settings
+    // This is the ONLY OnSceneLoaded method - it handles everything
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        FindSettingReferences();
-        LoadAllSettings();
+        StartCoroutine(InitializeSceneSettings());
     }
 
-        private T FindComponent<T>() where T : Component
+    // Helper method that handles both old and new Unity versions
+    private T FindComponent<T>() where T : Component
     {
 #if UNITY_2023_1_OR_NEWER
         return FindFirstObjectByType<T>();
@@ -64,7 +60,6 @@ public class GameManager : MonoBehaviour
 
     void FindSettingReferences()
     {
-        // Auto-find if not assigned
         if (volumeSlider == null)
             volumeSlider = FindComponent<VolumeSlider>();
         if (contrastSlider == null)
@@ -79,13 +74,65 @@ public class GameManager : MonoBehaviour
             mouseSensitivityController = FindComponent<MouseSensitivity>();
     }
 
-    // Tell all settings managers to load their values from PlayerPrefs
+    IEnumerator InitializeSceneSettings()
+    {
+    // Wait one frame for all scene objects to initialize
+    yield return null;
+    
+    FindSettingReferences();
+    
+    // Refresh scene-specific references and log results
+    if (contrastSlider != null)
+    {
+        Debug.Log("Refreshing ContrastSlider references...");
+        contrastSlider.RefreshSceneReferences();
+    }
+    else
+    {
+        Debug.Log("ContrastSlider not found in scene");
+    }
+    
+    if (volumeSlider != null)
+    {
+        Debug.Log("Refreshing VolumeSlider references...");
+        volumeSlider.RefreshSceneReferences();
+    }
+    else
+    {
+        Debug.Log("VolumeSlider not found in scene");
+    }
+    
+    if (colorBlindness != null)
+    {
+        Debug.Log("Refreshing ColorBlindness references...");
+        colorBlindness.RefreshSceneReferences();
+    }
+    else
+    {
+        Debug.Log("ColorBlindness not found in scene");
+    }
+    
+    if (zoomSettings != null)
+    {
+        Debug.Log($"Refreshing ZoomSettings references... Current zoom state: {PlayerPrefs.GetInt(ZoomSettings.zoomPrefKey, 0)}");
+        zoomSettings.RefreshSceneReferences();
+    }
+    else
+    {
+        Debug.Log("ZoomSettings not found in scene");
+    }
+    
+    LoadAllSettings();
+    
+    Debug.Log("Scene references refreshed for: " + SceneManager.GetActiveScene().name);
+    }
+
     public void LoadAllSettings()
     {
         Debug.Log("Loading all settings from PlayerPrefs...");
 
         if (volumeSlider != null)
-            volumeSlider.LoadDefault(); // Assuming LoadDefault loads from PlayerPrefs
+            volumeSlider.LoadDefault();
 
         if (contrastSlider != null)
             contrastSlider.LoadDefault();
@@ -103,14 +150,12 @@ public class GameManager : MonoBehaviour
             mouseSensitivityController.LoadSavedSensitivity();
     }
 
-    // Save all current settings to PlayerPrefs
     public void SaveAllSettings()
     {
         PlayerPrefs.Save();
         Debug.Log("All settings saved!");
     }
 
-    // Method to reset everything (calls your existing OnNoClicked logic)
     public void ResetAllSettings()
     {
         if (volumeSlider != null)
@@ -139,7 +184,11 @@ public class GameManager : MonoBehaviour
 
         if (controlsManager != null)
         {
-            DeleteControlKeys();
+            PlayerPrefs.DeleteKey("UpKey");
+            PlayerPrefs.DeleteKey("DownKey");
+            PlayerPrefs.DeleteKey("LeftKey");
+            PlayerPrefs.DeleteKey("RightKey");
+            PlayerPrefs.DeleteKey("CaptureKey");
             controlsManager.ResetToDefaults();
         }
 
@@ -153,16 +202,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("All settings reset to defaults!");
     }
 
-    void DeleteControlKeys()
-    {
-        PlayerPrefs.DeleteKey("UpKey");
-        PlayerPrefs.DeleteKey("DownKey");
-        PlayerPrefs.DeleteKey("LeftKey");
-        PlayerPrefs.DeleteKey("RightKey");
-        PlayerPrefs.DeleteKey("CaptureKey");
-    }
-
-    // Scene loading helper
     public void LoadScene(string sceneName)
     {
         SaveAllSettings();
