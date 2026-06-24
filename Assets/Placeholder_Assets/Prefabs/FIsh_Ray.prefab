@@ -596,7 +596,8 @@ MonoBehaviour:
   Recurso_Sani: 0
   Recurso_Fome: 1
   Gaso: 0
-  Sani: 0
-  Fome: 0
+  Sani: 3
+  Fome: 2
+  vida: 2
   Dialogos: []
   PrefabVisual: {fileID: 5629360794261142796, guid: b6729220fa18f164f8281c668dc8fee2, type: 3}

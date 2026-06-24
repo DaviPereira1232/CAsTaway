@@ -13,6 +13,8 @@ public class FishData : MonoBehaviour
     public float Sani = 0;
     public float Fome = 0;
 
+    public int vida = 2;
+
     public string[] Dialogos;
 
     public GameObject PrefabVisual;
@@ -33,6 +35,8 @@ public class FishInfo
     public float Sani = 0;
     public float Fome = 0;
 
+    public int vida = 2;
+
     public string[] Dialogos;
 
     public GameObject PrefabVisual;
@@ -49,6 +53,8 @@ public class FishInfo
         Gaso = peixe.Gaso;
         Sani = peixe.Sani;
         Fome = peixe.Fome;
+
+        vida = peixe.vida;
 
         Dialogos = peixe.Dialogos;
 

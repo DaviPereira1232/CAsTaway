@@ -1,11 +1,9 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Aquarium : MonoBehaviour
 {
-    GameObject[] Peixes_Aquario;
+    private GameObject[] Peixes_Aquario;
     public Transform[] Transform_Peixes;
     public GameObject[] balao;
     public TextMeshPro[] textos;
@@ -17,7 +15,6 @@ public class Aquarium : MonoBehaviour
 
     void Start()
     {
-
         if (Player_Save.Instance != null)
         {
             Peixes_Aquario = Player_Save.Instance.Peixes_Aquario;
@@ -25,20 +22,29 @@ public class Aquarium : MonoBehaviour
             SpawnPeixeAqua();
         }
 
+        if (usado == null || usado.Length != Transform_Peixes.Length)
+            usado = new bool[Transform_Peixes.Length];
+
+        if (textos == null || textos.Length != Transform_Peixes.Length)
+            textos = new TextMeshPro[Transform_Peixes.Length];
+
         for (int i = 0; i < balao.Length; i++)
         {
-            if (balao[i] == null)
+            if (balao[i] == null && Transform_Peixes[i] != null && Transform_Peixes[i].childCount > 0)
             {
-                balao[i] = Transform_Peixes[i].transform.GetChild(0).gameObject;
-                usado[i] = false;
+                balao[i] = Transform_Peixes[i].GetChild(0).gameObject;
             }
+            usado[i] = false;
         }
 
-
+        VerificarSeEstaCheio(); // Checa uma vez no início
     }
 
-    public void Update()
+    // Removido o Update pesado. Criamos um método focado.
+    public void VerificarSeEstaCheio()
     {
+        if (Peixes_Aquario == null) return;
+
         bool espacoVazioEncontrado = false;
         for (int i = 0; i < Peixes_Aquario.Length; i++)
         {
@@ -55,7 +61,7 @@ public class Aquarium : MonoBehaviour
     {
         for (int i = 0; i < Peixes_Aquario.Length; i++)
         {
-            if (Peixes_Aquario[i] != null)
+            if (Peixes_Aquario[i] != null && Peixes_Aquario[i].GetComponent<FishData>().vida > 0)
             {
                 if (inst_peixes[i] != null)
                 {
@@ -70,46 +76,84 @@ public class Aquarium : MonoBehaviour
                 );
             }
         }
+        VerificarSeEstaCheio();
     }
 
-    public void FalarComPeixe (int qualpeixe)
+    public void FalarComPeixe(int qualpeixe)
     {
-        if (usado[qualpeixe] == false)
+        if (qualpeixe < 0 || qualpeixe >= Peixes_Aquario.Length)
         {
-            gestao.AlterarSani(Peixes_Aquario[qualpeixe].GetComponent<FishData>().Sani);
+            FecharTodosOsBaloes();
+            return;
         }
 
-        usado[qualpeixe] = true;
+        if (Peixes_Aquario[qualpeixe] == null) return;
 
-        if (qualpeixe >= 0 && qualpeixe <= 4 && Peixes_Aquario[qualpeixe] != null)
+        if (!usado[qualpeixe])
+        {
+            FishData data = Peixes_Aquario[qualpeixe].GetComponent<FishData>();
+            if (data != null && gestao != null)
+            {
+                gestao.AlterarSani(data.Sani);
+            }
+            usado[qualpeixe] = true;
+        }
+
+        // Ativação do Balão e Animação
+        if (balao[qualpeixe] != null)
         {
             balao[qualpeixe].SetActive(true);
-            balao[qualpeixe].GetComponent<Animation>().Play();
-            string textoAtual = "";
-            string texto = balao[qualpeixe].transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text;
-            for (int i = 0; i < texto.Length; i++)
+
+            if (balao[qualpeixe].TryGetComponent<Animation>(out Animation anim))
             {
-                textoAtual = texto.Substring(0, i);
+                anim.Play();
+            }
+
+            // Atualiza o texto do balão dinamicamente baseado no FishData do peixe
+            Transform child = balao[qualpeixe].transform.GetChild(0);
+            if (child != null && child.TryGetComponent<TextMeshPro>(out TextMeshPro tmp))
+            {
+                textos[qualpeixe] = tmp;
+                FishData data = Peixes_Aquario[qualpeixe].GetComponent<FishData>();
+
+                if (data != null && data.Dialogos != null && data.Dialogos.Length > qualpeixe)
+                {
+                    // Atribui o texto correto (Nota: use o índice correto do diálogo se necessário)
+                    tmp.text = data.Dialogos[qualpeixe];
+                }
             }
         }
-        else if (qualpeixe == 6)
-        {
-            balao[0].SetActive(false);
-            balao[1].SetActive(false);
-            balao[2].SetActive(false);
-            balao[3].SetActive(false);
-            balao[4].SetActive(false);
-        }
+    }
+    public void ReduzirVida()
+    {
+        if (Player_Save.Instance == null || Player_Save.Instance.Peixes_Aquario == null) return;
 
+        for (int i = 0; i < Player_Save.Instance.Peixes_Aquario.Length; i++)
+        {
+            if (Player_Save.Instance.Peixes_Aquario[i] != null)
+            {
+                FishData data = Player_Save.Instance.Peixes_Aquario[i].GetComponent<FishData>();
+                if (data != null)
+                {
+                    data.vida -= 1;
+
+                    if (data.vida <= 0 && inst_peixes[i] != null)
+                    {
+                        Destroy(inst_peixes[i]);
+                        VerificarSeEstaCheio();
+                    }
+                }
+            }
+        }
+    }
+    private void FecharTodosOsBaloes()
+    {
         for (int i = 0; i < balao.Length; i++)
         {
-            textos[i] = balao[i].transform.GetChild(0).gameObject.GetComponent<TextMeshPro>();
-
-            if (inst_peixes[i] != null && textos[i] != null)
+            if (balao[i] != null)
             {
-                textos[i].text = Peixes_Aquario[i].GetComponent<FishData>().Dialogos[Random.Range(0, Peixes_Aquario[i].GetComponent<FishData>().Dialogos.Length)];
+                balao[i].SetActive(false);
             }
-        }   
+        }
     }
-
 }

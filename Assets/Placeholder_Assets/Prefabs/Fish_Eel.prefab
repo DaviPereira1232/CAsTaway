@@ -95,6 +95,11 @@ MonoBehaviour:
   Recurso_Gaso: 1
   Recurso_Sani: 1
   Recurso_Fome: 1
+  Gaso: 0
+  Sani: 4
+  Fome: 3
+  vida: 2
+  Dialogos: []
   PrefabVisual: {fileID: 919132149155446097, guid: f023399b57ee22246b5a1c95192e5538, type: 3}
 --- !u!1001 &1499141369976781688
 PrefabInstance:
