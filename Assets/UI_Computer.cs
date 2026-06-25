@@ -130,7 +130,19 @@ public class UI_Computer : MonoBehaviour
             Destroy(peixeinstanciado);
 
         peixeinstanciado = Instantiate(Peixes[peixe_atual].PrefabVisual, peixe_transform);
-        peixeinstanciado.transform.localScale = Vector3.one * 0.80f;
+
+        if (peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe == "Raia" && peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe != null)
+        {
+            peixeinstanciado.transform.localScale = Vector3.one * 0.10f;
+        }
+        else if (peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe == "Dumbo Octo" && peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe != null)
+        {
+            peixeinstanciado.transform.localScale = Vector3.one * 0.80f;
+        }
+        else if (peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe == "Green Eel" && peixeinstanciado.GetComponent<FishData>().Nome_do_Peixe != null)
+        {
+            peixeinstanciado.transform.localScale = Vector3.one * 0.10f;
+        }
 
         FishInfo fish = Peixes[peixe_atual];
         Nome_Text.text = fish.Nome_do_Peixe;

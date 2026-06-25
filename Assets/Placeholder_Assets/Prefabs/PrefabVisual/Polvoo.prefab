@@ -556,6 +556,7 @@ MonoBehaviour:
   Gaso: 0
   Sani: 1
   Fome: 0.5
+  vida: 2
   Dialogos:
   - Ei Ei EI! Quer ser meu amiguinho?
   - "N\xE3o confia naquele tal de polvo dumbo n\xFAmero 42."
