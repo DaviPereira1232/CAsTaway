@@ -140,7 +140,8 @@ public class ScreenSwitching : MonoBehaviour
                     }
 
                     currentPos = 3;
-                    Invoke(nameof(PlayExitingSound), 7f);
+
+                    Invoke(nameof(PlayExitingSound), 8f);
                     break;
                     
                 case "Trigger_Bed":
