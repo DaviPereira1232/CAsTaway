@@ -17,7 +17,7 @@ public class SceneSetup : MonoBehaviour
         {
             for (int i = 1; i < eventSystems.Length; i++)
             {
-                eventSystems[i].gameObject.SetActive(false);
+                //eventSystems[i].gameObject.SetActive(false);
             }
         }
         
