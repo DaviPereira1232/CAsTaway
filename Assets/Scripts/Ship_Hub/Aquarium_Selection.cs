@@ -38,27 +38,32 @@ public class Aquarium_Selection : MonoBehaviour
             if (hit.collider.gameObject == Transform_Peixe[0].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[0])
             {
                 Transform_Peixe[0].GetChild(0).gameObject.SetActive(true);
-                Transform_Peixe[0].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
+                Transform_Peixe[0].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeï¿½alho");
+                AudioManager.Instance.PlayRandomGlub();
             }
             else if (hit.collider.gameObject == Transform_Peixe[1].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[1])
             {
                 Transform_Peixe[1].GetChild(0).gameObject.SetActive(true);
-                Transform_Peixe[1].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
+                Transform_Peixe[1].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeï¿½alho");
+                AudioManager.Instance.PlayRandomGlub();
             }
             else if (hit.collider.gameObject == Transform_Peixe[2].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[2])
             {
                 Transform_Peixe[2].GetChild(0).gameObject.SetActive(true);
-                Transform_Peixe[2].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
+                Transform_Peixe[2].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeï¿½alho");
+                AudioManager.Instance.PlayRandomGlub();
             }
             else if (hit.collider.gameObject == Transform_Peixe[3].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[3])
             {
                 Transform_Peixe[3].GetChild(0).gameObject.SetActive(true);
-                Transform_Peixe[3].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
+                Transform_Peixe[3].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeï¿½alho");
+                AudioManager.Instance.PlayRandomGlub();
             }
             else if (hit.collider.gameObject == Transform_Peixe[4].gameObject && Input.GetButtonDown("Fire1") && PeixesDoAquario[4])
             {
                 Transform_Peixe[4].GetChild(0).gameObject.SetActive(true);
-                Transform_Peixe[4].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeçalho");
+                Transform_Peixe[4].GetChild(0).gameObject.GetComponent<Animator>().Play("Peixe_Cabeï¿½alho");
+                AudioManager.Instance.PlayRandomGlub();
             }
         }
         else if (hit.collider == null)
