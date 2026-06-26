@@ -7,6 +7,7 @@ TagManager:
   - Fish
   - Obstacle
   - GlobalVolume
+  - seila
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - "GatinhoRea\xE7\xF5es"
+  - Peixes
   - 
   - 
   - 

@@ -25,6 +25,8 @@ public class GestaoDeRecursos : MonoBehaviour
     public Slider sani_Slider;
     public Slider fuel_Slider;
 
+    public GameObject gatoreact;
+
     public TextMeshProUGUI resultados_text;
 
     void Start()
@@ -79,6 +81,20 @@ public class GestaoDeRecursos : MonoBehaviour
         Sani = -2;
 
         aqua.ReduzirVida();
+
+        if (gatoreact != null)
+        {
+            Animator anim = gatoreact.GetComponent<Animator>();
+
+            if (sobreviveu)
+            {
+                anim.SetBool("Ganhou", true);
+            }
+            else if (!sobreviveu)
+            {
+                anim.SetBool("Ganhou", false);
+            }
+        }
     }
 
     public void ProximoDia()

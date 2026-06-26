@@ -59,14 +59,18 @@ public class PlayerMovement3 : MonoBehaviour
             Voltar();
         }
 
+        Animator anim = shipMesh.GetComponent<Animator>();
+
         //Fish Gathering 
         if (nearbyFish != null && Input.GetButtonDown("Fire1"))
         {
+            anim.SetTrigger("AAAAAAAAAAAAAAAAAAAAAAAA");
             if (nearbyFish.GetComponent<Collider>() != null)
             {
                 StartCoroutine(Pegar(
                     nearbyFish,
                     nearbyFish.GetComponent<Collider>(),
+                    nearbyFish.GetComponent<Animator>(),
                     nearbyFish.GetComponent<MeshRenderer>()
                 ));
             }
@@ -121,12 +125,18 @@ public class PlayerMovement3 : MonoBehaviour
         currentForce = Vector2.zero;
     }
 
-    private IEnumerator Pegar(GameObject peixepego, Collider colisao, MeshRenderer mesh)
+    private IEnumerator Pegar(GameObject peixepego, Collider colisao,Animator anim, MeshRenderer mesh)
     {
+        if (anim != null)
+        {
+            anim.SetBool("Capturado", true);
+        }
+
         colisao.enabled = false;
 
         Vector3 startScale = peixepego.transform.localScale;
         Vector3 startPos = peixepego.transform.position;
+
 
         float duration = 0.4f;
         float t = 0f;

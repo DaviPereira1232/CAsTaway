@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.92102545, z: -0, w: -0.38950253}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.23, y: 3.23, z: 3.23}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1388441703076306067}
   m_Father: {fileID: 0}
@@ -92,15 +92,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nome_do_Peixe: Green Eel
   "Descri\xE7\xE3o_do_Peixe": 'Fast as a lighting bolt '
-  Recurso_Gaso: 1
+  Recurso_Gaso: 0
   Recurso_Sani: 1
-  Recurso_Fome: 1
-  Gaso: 0
-  Sani: 4
-  Fome: 3
+  Recurso_Fome: 0
+  Gaso: 4
+  Sani: 2
+  Fome: 0
   vida: 2
-  Dialogos: []
-  PrefabVisual: {fileID: 919132149155446097, guid: f023399b57ee22246b5a1c95192e5538, type: 3}
+  Dialogos:
+  - Eu vou te energizar
+  - Muahaha
+  - "N\xE3o toques em mim, eu posso te magoar!"
+  - "HEY! Eu n\xE3o quero estar aqui!!!!"
+  - 'Eu vou te eletrizar!!! '
+  PrefabVisual: {fileID: 4394791385364482969, guid: bd16e56c4b0c836449abd48efdc6432d, type: 3}
 --- !u!1001 &1499141369976781688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,6 +246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enguia_Nado
       objectReference: {fileID: 0}
+    - target: {fileID: 3083273589028293225, guid: 4105a22fe3e2b284180688ec4363c0bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0851f3fe08388cc4586e90517c8ecaf5, type: 2}
     - target: {fileID: 3503916587931222284, guid: 4105a22fe3e2b284180688ec4363c0bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 20.792048
