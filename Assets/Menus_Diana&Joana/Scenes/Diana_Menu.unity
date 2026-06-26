@@ -211,7 +211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &12347940
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6657,7 +6657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &652995467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8059,9 +8059,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 827347671}
         m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
-        m_MethodName: HidePanel
+        m_MethodName: ShowPanel
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1333919215}
@@ -8071,7 +8071,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 827347671}
         m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
         m_MethodName: ShowPanel
         m_Mode: 2
@@ -8083,7 +8083,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 827347671}
         m_TargetAssemblyTypeName: UIPanelManager, Assembly-CSharp
         m_MethodName: HidePanel
         m_Mode: 2
@@ -11191,7 +11191,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.4862745, g: 0.4862745, b: 0.4862745, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12016,8 +12016,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0.4867924, g: 0.4867924, b: 0.4867924, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -12281,7 +12281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1280489436
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15393,7 +15393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1665956877
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20189,6 +20189,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubAnna
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ac47e48beb6487418ea66f73bc4bcf1, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubDavi
+      value: 
+      objectReference: {fileID: 8300000, guid: ebd1292c58d4476479a583f37361ce1e, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubDiana
+      value: 
+      objectReference: {fileID: 8300000, guid: 00120e1bb8c86984c8783fd935b15bad, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubJoana
+      value: 
+      objectReference: {fileID: 8300000, guid: b8dadd0b821cefd4c8b7ffd8f61ea883, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubJorge
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ccc800d5f5b4984cbd57cf84218a34f, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: "glubJo\xE3o"
+      value: 
+      objectReference: {fileID: 8300000, guid: 63d6e5608dc11a44ca1879d54522c31d, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: glubLeandro
+      value: 
+      objectReference: {fileID: 8300000, guid: e25fd356370b9704eb56c8167a8d85bd, type: 3}
+    - target: {fileID: 1209040477833556491, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
+      propertyPath: sfxPoolSize
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 3824535745534553853, guid: 7ce4cf0c771dfb8408cfdd2edfe5cc4d, type: 3}
       propertyPath: m_Name
       value: Audio Manager

@@ -14,7 +14,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("----SFX Pool----")]
     //[SerializeField] private GameObject sfxSourcePrefab;
-    [SerializeField] private int sfxPoolSize = 10;
+    [SerializeField] private int sfxPoolSize = 17;
     private List<AudioSource> sfxPool = new List<AudioSource>();
     private AudioMixerGroup sfxMixerGroup;
 
@@ -37,6 +37,18 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip computer;
     [SerializeField] private AudioClip exitingSpaceship;
     [SerializeField] private AudioClip catSleeping;
+
+    [Header ("Glub Glubs")]
+
+    [SerializeField] private AudioClip glubAnna;
+    [SerializeField] private AudioClip glubDavi;
+    [SerializeField] private AudioClip glubDiana;
+    [SerializeField] private AudioClip glubJoana;
+    [SerializeField] private AudioClip glubJoão;
+    [SerializeField] private AudioClip glubJorge;
+    [SerializeField] private AudioClip glubLeandro;
+
+    private List<AudioClip> glubClips;
 
     private void Awake()
     {
@@ -80,6 +92,8 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.clip = background;
         musicSource.Play();
+
+        InitializeGlubClips();
     }
 
     // Play a sound effect - won't overlap because it uses the pool
@@ -113,13 +127,7 @@ public class AudioManager : MonoBehaviour
             if (!source.isPlaying)
                 return source;
         }
-
-        // If all are playing, either:
-        // Option 1: Expand the pool
-        // Option 2: Return the oldest playing source (this cuts off the oldest sound)
-        // Option 3: Return null (don't play the sound)
-        
-        // Option 2: Cut off oldest sound
+        //Cut off oldest sound
         AudioSource oldestSource = sfxPool[0];
         float oldestTime = float.MaxValue;
         
@@ -134,6 +142,34 @@ public class AudioManager : MonoBehaviour
         
         Debug.LogWarning("All SFX sources in use! Cutting off oldest sound.");
         return oldestSource;
+    }
+
+    private void InitializeGlubClips()
+    {
+        glubClips = new List<AudioClip>
+        {
+            glubAnna,
+            glubDavi,
+            glubDiana,
+            glubJoana,
+            glubJoão,
+            glubJorge,
+            glubLeandro
+        };
+    }
+
+    public void PlayRandomGlubSound(float volume = 1f, Vector3? position = null, float pitch = 1f)
+    {
+        if (glubClips == null || glubClips.Count == 0)
+        {
+            Debug.LogWarning("No glub clips available!");
+            return;
+        }
+        
+        int randomIndex = Random.Range(0, glubClips.Count);
+        AudioClip randomGlub = glubClips[randomIndex];
+        
+        PlaySFX(randomGlub, volume, position, pitch);
     }
 
     // Convenience methods for your specific sounds
@@ -152,4 +188,7 @@ public class AudioManager : MonoBehaviour
     public void PlayBubblesAtPosition(Vector3 position) => PlaySFX(bubbles, 0.6f, position);
 
     public void PlayWaterSwoshAtPosition(Vector3 position) => PlaySFX(waterswosh, 0.7f, position);
+
+    public void PlayRandomGlub() => PlayRandomGlubSound(0.8f);
+    public void PlayRandomGlubAtPosition(Vector3 position) => PlayRandomGlubSound(0.8f, position);
 }

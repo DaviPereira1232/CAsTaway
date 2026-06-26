@@ -140,8 +140,10 @@ public class ScreenSwitching : MonoBehaviour
                     }
 
                     currentPos = 3;
-                    AudioManager.Instance.PlayExitingSpaceship();
+
+                    Invoke(nameof(PlayExitingSound), 8f);
                     break;
+                    
                 case "Trigger_Bed":
                     currentPos = 4;
                     AudioManager.Instance.PlayCatSleeping();
@@ -183,6 +185,11 @@ public class ScreenSwitching : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         fuelWarningText.gameObject.SetActive(false);
+    }
+
+    private void PlayExitingSound()
+    {
+        AudioManager.Instance.PlayExitingSpaceship();
     }
 
 }
